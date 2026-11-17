@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tất Cả Sản Phẩm - Nova Shop</title>
+    <meta name="description" content="Danh sách laptop, PC gaming, linh kiện, màn hình chính hãng tại Nova Shop.">
+    <meta name="theme-color" content="#0B74E5">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/client.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="client-page d-flex flex-column min-vh-100">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container-site topbar-inner">
+            <div class="topbar-left">
+                <span><i class="bi bi-truck me-1"></i>Miễn phí vận chuyển đơn từ 500.000₫</span>
+                <span class="d-none d-md-inline ms-3">
+                    <i class="bi bi-telephone-fill me-1"></i>
+                    Hotline: <strong><a href="tel:18006867" class="text-white">1800 6867</a></strong> (8:00–21:00)
+                </span>
+            </div>
+            <div class="topbar-right">
+                <a href="products.html" class="d-none d-sm-inline">Hệ thống cửa hàng</a>
+                <a href="orders.html">Tra cứu đơn hàng</a>
+                <a href="login.html">Đăng nhập</a>
+                <a href="register.html" class="d-none d-sm-inline">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header" id="main-header">
+        <div class="container-site header-inner">
+            <a href="index.html" class="header-logo" aria-label="Nova Shop - Trang chủ">
+                <img src="assets/img/logo.svg" alt="Nova Shop" width="42" height="42">
+                <span class="header-logo-text">
+                    <strong>NOVA SHOP</strong>
+                    <small>Công nghệ chính hãng</small>
+                </span>
+            </a>
+
+            <!-- Search -->
+            <div class="header-search flex-grow-1 mx-3">
+                <form action="products.html" method="GET" class="position-relative">
+                    <input type="text" class="form-control search-input" placeholder="Tìm kiếm laptop, PC, linh kiện..." autocomplete="off">
+                    <button type="submit" class="btn btn-search">
+                        <i class="bi bi-search me-1"></i>
+                        <span>Tìm kiếm</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Actions -->
+            <div class="header-actions d-flex align-items-center gap-3">
+                <a href="orders.html" class="header-action-btn d-none d-md-flex flex-column align-items-center text-decoration-none">
+                    <i class="bi bi-receipt fs-5"></i>
+                    <span>Tra cứu đơn</span>
+                </a>
+                <a href="login.html" class="header-action-btn d-none d-sm-flex flex-column align-items-center text-decoration-none">
+                    <i class="bi bi-person fs-5"></i>
+                    <span>Tài khoản</span>
+                </a>
+                <a href="cart.html" class="header-action-btn header-cart position-relative d-flex flex-column align-items-center text-decoration-none">
+                    <span class="action-icon-wrap position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="cart-badge badge rounded-pill bg-danger" id="cartCount">3</span>
+                    </span>
+                    <span>Giỏ hàng</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-white border-bottom py-2">
+        <div class="container-site">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-0 small">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tất cả sản phẩm</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN LISTING CONTENT -->
+    <main class="flex-grow-1 py-4">
+        <div class="container-site">
+            <div class="row g-4">
+                
+                <!-- BỘ LỌC BÊN TRÁI (FILTER SIDEBAR) -->
+                <aside class="col-12 col-lg-3">
+                    <div class="bg-white p-3 rounded-3 shadow-sm border mb-3">
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                            <h5 class="fs-6 fw-bold m-0"><i class="bi bi-funnel text-primary me-1"></i> BỘ LỌC TÌM KIẾM</h5>
+                            <a href="products.html" class="small text-danger text-decoration-none">Xóa tất cả</a>
+                        </div>
+
+                        <!-- Lọc Danh mục -->
+                        <div class="filter-group mb-3 pb-3 border-bottom">
+                            <h6 class="fw-bold small mb-2 text-dark">Danh mục sản phẩm</h6>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="cat-laptop" checked>
+                                <label class="form-check-label small" for="cat-laptop">Laptop &amp; MacBook (12)</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="cat-pc" checked>
+                                <label class="form-check-label small" for="cat-pc">PC Gaming &amp; Đồ họa (8)</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="cat-vga">
+                                <label class="form-check-label small" for="cat-vga">Linh kiện máy tính (15)</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="cat-mon">
+                                <label class="form-check-label small" for="cat-mon">Màn hình máy tính (6)</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="cat-gear">
+                                <label class="form-check-label small" for="cat-gear">Bàn phím &amp; Chuột (10)</label>
+                            </div>
+                        </div>
+
+                        <!-- Lọc Thương hiệu -->
+                        <div class="filter-group mb-3 pb-3 border-bottom">
+                            <h6 class="fw-bold small mb-2 text-dark">Thương hiệu</h6>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="b-asus" checked>
+                                <label class="form-check-label small" for="b-asus">ASUS</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="b-acer">
+                                <label class="form-check-label small" for="b-acer">Acer</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="b-apple">
+                                <label class="form-check-label small" for="b-apple">Apple</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="b-logitech">
+                                <label class="form-check-label small" for="b-logitech">Logitech</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="checkbox" id="b-lg">
+                                <label class="form-check-label small" for="b-lg">LG</label>
+                            </div>
+                        </div>
+
+                        <!-- Lọc Khoảng giá -->
+                        <div class="filter-group mb-3">
+                            <h6 class="fw-bold small mb-2 text-dark">Mức giá</h6>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="price" id="p-all" checked>
+                                <label class="form-check-label small" for="p-all">Tất cả mức giá</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="price" id="p-under10">
+                                <label class="form-check-label small" for="p-under10">Dưới 10 triệu</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="price" id="p-10-20">
+                                <label class="form-check-label small" for="p-10-20">Từ 10 - 20 triệu</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="price" id="p-over20">
+                                <label class="form-check-label small" for="p-over20">Trên 20 triệu</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary w-100 rounded-pill btn-sm">Áp dụng bộ lọc</button>
+                    </div>
+                </aside>
+
+                <!-- CỘT DANH SÁCH SẢN PHẨM -->
+                <section class="col-12 col-lg-9">
+                    <!-- Thanh tiêu đề & sắp xếp -->
+                    <div class="bg-white p-3 rounded-3 shadow-sm border mb-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+                        <div>
+                            <h1 class="fs-5 fw-bold m-0 text-dark">Tất Cả Sản Phẩm</h1>
+                            <small class="text-muted">Hiển thị <strong>8</strong> trong <strong>36</strong> sản phẩm chính hãng</small>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="small text-muted text-nowrap">Sắp xếp theo:</span>
+                            <select class="form-select form-select-sm" style="width: 170px;">
+                                <option selected>Nổi bật nhất</option>
+                                <option>Giá: Thấp đến cao</option>
+                                <option>Giá: Cao đến thấp</option>
+                                <option>Bán chạy nhất</option>
+                                <option>Mới về</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Lưới sản phẩm 8 thẻ -->
+                    <div class="row g-3 row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+                        
+                        <!-- SP 1 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-9%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/laptop-rog.png" alt="Laptop ROG" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Laptop Asus ROG Strix G16 G614JV</a>
+                                </h4>
+                                <p class="text-muted small mb-2">i7-13650HX / RTX 4060 / 16GB / 512GB</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">36.490.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">39.990.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SP 2 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-8%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/laptop-predator.png" alt="Acer Predator" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Laptop Acer Predator Helios Neo 16</a>
+                                </h4>
+                                <p class="text-muted small mb-2">i7-13700HX / RTX 4060 / 16GB / 512GB</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">35.990.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">38.990.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SP 3 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-9%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/macbook-air.png" alt="MacBook Air M2" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Apple MacBook Air 13 inch M2</a>
+                                </h4>
+                                <p class="text-muted small mb-2">8GB RAM / 256GB SSD Liquid Retina</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">24.490.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">26.990.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SP 4 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-13%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/pc-apex.png" alt="PC Gaming Apex" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">PC Gaming Nova Shop Apex Ultra</a>
+                                </h4>
+                                <p class="text-muted small mb-2">i5-13400F / RTX 3060 12GB / 16GB RAM</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">19.990.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">22.990.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SP 5 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-6%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/vga-4070.png" alt="VGA ASUS TUF 4070" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Card ASUS TUF Gaming RTX 4070</a>
+                                </h4>
+                                <p class="text-muted small mb-2">12GB GDDR6X / Ray Tracing / DLSS 3</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">18.890.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">19.990.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SP 6 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-16%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/monitor-lg.png" alt="Màn hình LG 27 inch" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Màn Hình Gaming LG UltraGear 27"</a>
+                                </h4>
+                                <p class="text-muted small mb-2">2K QHD / IPS 165Hz / 1ms GtG</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">6.290.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">7.490.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SP 7 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-14%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/keyboard-logi.png" alt="Bàn phím cơ Logitech G515" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Bàn Phím Cơ Logitech G515</a>
+                                </h4>
+                                <p class="text-muted small mb-2">LIGHTSPEED Không dây / Low-Profile</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">2.990.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">3.490.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SP 8 -->
+                        <div class="col">
+                            <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative border">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-10%</span>
+                                <a href="product-detail.html" class="text-center my-2 text-decoration-none" style="height: 160px; display: block;">
+                                    <img src="assets/img/products/mouse-logi.png" alt="Chuột Logitech G PRO X" class="img-fluid h-100 object-fit-contain">
+                                </a>
+                                <h4 class="fs-6 fw-bold text-dark mb-1">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Chuột Logitech G PRO X 2</a>
+                                </h4>
+                                <p class="text-muted small mb-2">Siêu nhẹ 60g / Cảm biến HERO 32K</p>
+                                <div class="mt-auto">
+                                    <span class="text-danger fw-bolder fs-6 d-block">3.490.000₫</span>
+                                    <span class="text-decoration-line-through text-muted small">3.890.000₫</span>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> 0%</small>
+                                        <a href="cart.html" class="btn btn-sm btn-primary rounded-pill px-3">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Phân trang -->
+                    <nav class="mt-4" aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer bg-dark text-white pt-4 pb-3 mt-auto">
+        <div class="container-site text-center small text-secondary">
+            © 2026 Nova Shop - Laptop, PC &amp; Linh kiện chính hãng.
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

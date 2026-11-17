@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Shop - Laptop, PC & Linh Kiện Công Nghệ Chính Hãng</title>
+    <meta name="description" content="Nova Shop - Mua laptop, Build PC, linh kiện máy tính, màn hình, bàn phím chuột chính hãng giá tốt, trả góp 0%, giao hàng toàn quốc.">
+    <meta name="theme-color" content="#0B74E5">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS từ dự án Nova Shop -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/client.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/effects.css">
+</head>
+<body class="client-page d-flex flex-column min-vh-100">
+
+    <!-- 1. TOPBAR -->
+    <div class="topbar">
+        <div class="container-site topbar-inner">
+            <div class="topbar-left">
+                <span><i class="bi bi-truck me-1"></i>Miễn phí vận chuyển đơn từ 500.000₫</span>
+                <span class="d-none d-md-inline ms-3">
+                    <i class="bi bi-telephone-fill me-1"></i>
+                    Hotline: <strong><a href="tel:18006867" class="text-white">1800 6867</a></strong> (8:00–21:00)
+                </span>
+            </div>
+            <div class="topbar-right">
+                <a href="products.html" class="d-none d-sm-inline">Hệ thống cửa hàng</a>
+                <a href="orders.html">Tra cứu đơn hàng</a>
+                <a href="login.html">Đăng nhập</a>
+                <a href="register.html" class="d-none d-sm-inline">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN HEADER -->
+    <header class="main-header" id="main-header">
+        <div class="container-site header-inner">
+            <button class="mobile-menu-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileDrawer" aria-label="Mở menu">
+                <i class="bi bi-list fs-2 text-white"></i>
+            </button>
+
+            <!-- Logo -->
+            <a href="index.html" class="header-logo" aria-label="Nova Shop - Trang chủ">
+                <img src="assets/img/logo.svg" alt="Nova Shop" width="42" height="42">
+                <span class="header-logo-text">
+                    <strong>NOVA SHOP</strong>
+                    <small>Công nghệ chính hãng</small>
+                </span>
+            </a>
+
+            <!-- Nút Danh mục -->
+            <div class="header-categories position-relative">
+                <button class="btn-categories" type="button" id="btnCategories">
+                    <i class="bi bi-grid-3x3-gap-fill me-1"></i>
+                    <span>Danh mục</span>
+                    <i class="bi bi-chevron-down caret ms-1"></i>
+                </button>
+                <div class="categories-panel" id="categoriesPanel">
+                    <a href="#laptop"><i class="bi bi-laptop"></i> Laptop &amp; Macbook</a>
+                    <a href="#pc"><i class="bi bi-pc-display"></i> PC - Máy tính bàn</a>
+                    <a href="#components"><i class="bi bi-cpu"></i> Linh kiện máy tính</a>
+                    <a href="#monitors"><i class="bi bi-display"></i> Màn hình máy tính</a>
+                    <a href="#keyboard"><i class="bi bi-keyboard"></i> Bàn phím cơ</a>
+                    <a href="#mouse"><i class="bi bi-mouse"></i> Chuột Gaming</a>
+                    <a href="#flashsale"><i class="bi bi-lightning-charge text-danger"></i> Flash Sale hôm nay</a>
+                    <a href="#buildpc"><i class="bi bi-tools text-primary"></i> Build PC theo cấu hình</a>
+                </div>
+            </div>
+
+            <!-- Thanh tìm kiếm -->
+            <div class="header-search flex-grow-1 mx-3">
+                <form action="#search" method="GET" class="position-relative">
+                    <input type="text" class="form-control search-input" placeholder="Bạn cần tìm laptop, PC, linh kiện gì hôm nay?..." autocomplete="off">
+                    <button type="button" class="btn btn-search">
+                        <i class="bi bi-search me-1"></i>
+                        <span>Tìm kiếm</span>
+                    </button>
+                </form>
+                <div class="search-popular d-none d-md-flex align-items-center gap-2 mt-1">
+                    <span>Phổ biến:</span>
+                    <a href="#search?q=laptop">Laptop gaming</a>
+                    <a href="#search?q=macbook">MacBook M2</a>
+                    <a href="#search?q=rtx4070">RTX 4070</a>
+                    <a href="#search?q=manhinh">Màn hình 2K</a>
+                    <a href="#search?q=banphim">Bàn phím cơ</a>
+                </div>
+            </div>
+
+            <!-- Các hành động Header -->
+            <div class="header-actions d-flex align-items-center gap-3">
+                <a href="orders.html" class="header-action-btn d-none d-md-flex flex-column align-items-center text-decoration-none">
+                    <i class="bi bi-receipt fs-5"></i>
+                    <span>Tra cứu đơn</span>
+                </a>
+                <a href="login.html" class="header-action-btn d-none d-sm-flex flex-column align-items-center text-decoration-none">
+                    <i class="bi bi-person fs-5"></i>
+                    <span>Tài khoản</span>
+                </a>
+                <a href="cart.html" class="header-action-btn header-cart position-relative d-flex flex-column align-items-center text-decoration-none" id="cartButton">
+                    <span class="action-icon-wrap position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="cart-badge badge rounded-pill bg-danger" id="cartCount">3</span>
+                    </span>
+                    <span>Giỏ hàng</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. CATEGORY NAVIGATION BAR -->
+    <nav class="category-nav d-none d-lg-block border-bottom bg-white" aria-label="Danh mục sản phẩm">
+        <div class="container-site">
+            <ul class="nav-list d-flex list-unstyled m-0 p-0 align-items-center">
+                <li class="nav-item nav-all">
+                    <a href="products.html" class="nav-link fw-bold text-primary">
+                        <i class="bi bi-list me-1"></i> Tất cả danh mục
+                    </a>
+                </li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="bi bi-laptop me-1"></i> Laptop</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="bi bi-pc-display me-1"></i> PC Gaming</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="bi bi-cpu me-1"></i> Linh kiện</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="bi bi-display me-1"></i> Màn hình</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="bi bi-keyboard me-1"></i> Bàn phím</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="bi bi-mouse me-1"></i> Chuột</a></li>
+                <li class="nav-item ms-auto nav-sale">
+                    <a href="products.html" class="nav-link text-danger fw-bold">
+                        <i class="bi bi-lightning-charge-fill text-danger me-1"></i> Flash Sale Giá Sốc
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 4. HERO SECTION -->
+    <section class="hero-section py-3">
+        <div class="container-site">
+            <div class="hero-row d-flex gap-3">
+                
+                <!-- Cột Menu Trái -->
+                <aside class="category-sidebar d-none d-lg-block" style="width: 240px; flex-shrink: 0;" aria-label="Danh mục nhanh">
+                    <ul class="sidebar-menu list-unstyled p-0 m-0">
+                        <li>
+                            <a href="#laptop">
+                                <i class="bi bi-laptop me-2"></i>
+                                <span class="sidebar-label">Laptop &amp; MacBook</span>
+                                <i class="bi bi-chevron-right sidebar-arrow ms-auto"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pc">
+                                <i class="bi bi-pc-display me-2"></i>
+                                <span class="sidebar-label">PC - Máy tính để bàn</span>
+                                <i class="bi bi-chevron-right sidebar-arrow ms-auto"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#components">
+                                <i class="bi bi-cpu me-2"></i>
+                                <span class="sidebar-label">Linh kiện máy tính</span>
+                                <i class="bi bi-chevron-right sidebar-arrow ms-auto"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#monitors">
+                                <i class="bi bi-display me-2"></i>
+                                <span class="sidebar-label">Màn hình máy tính</span>
+                                <i class="bi bi-chevron-right sidebar-arrow ms-auto"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#keyboard">
+                                <i class="bi bi-keyboard me-2"></i>
+                                <span class="sidebar-label">Bàn phím cơ &amp; Chuột</span>
+                                <i class="bi bi-chevron-right sidebar-arrow ms-auto"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#audio">
+                                <i class="bi bi-headphones me-2"></i>
+                                <span class="sidebar-label">Tai nghe &amp; Loa</span>
+                                <i class="bi bi-chevron-right sidebar-arrow ms-auto"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#buildpc" class="text-primary fw-bold">
+                                <i class="bi bi-tools me-2"></i>
+                                <span class="sidebar-label">Build PC theo cấu hình</span>
+                                <i class="bi bi-chevron-right sidebar-arrow ms-auto"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Banner Carousel Chính -->
+                <div class="hero-carousel-wrap flex-grow-1 overflow-hidden rounded-3 shadow-sm">
+                    <div id="heroBanner" class="carousel slide hero-carousel h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#heroBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#heroBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#heroBanner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner h-100">
+                            <div class="carousel-item active h-100">
+                                <a href="#laptop">
+                                    <img src="assets/img/banner/laptop-uu-dai.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Laptop chính hãng ưu đãi cực sốc">
+                                </a>
+                            </div>
+                            <div class="carousel-item h-100">
+                                <a href="#pc">
+                                    <img src="assets/img/banner/combo-pc.jpg" class="d-block w-100 h-100 object-fit-cover" alt="PC Gaming combo linh kiện đỉnh cao">
+                                </a>
+                            </div>
+                            <div class="carousel-item h-100">
+                                <a href="#monitors">
+                                    <img src="assets/img/banner/bao-hanh-man-hinh.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Bảo hành màn hình chính hãng tận tâm">
+                                </a>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#heroBanner" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Trước</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#heroBanner" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Sau</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2 Banner Phụ Bên Phải -->
+                <div class="hero-side-banners d-none d-xl-flex flex-column gap-2" style="width: 220px; flex-shrink: 0;">
+                    <a href="#gift" class="hero-side-card side-card-gift text-decoration-none p-3 rounded-3 d-flex flex-column justify-content-between">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-danger">HOT</span>
+                            <i class="bi bi-gift fs-3 text-warning"></i>
+                        </div>
+                        <div class="mt-2">
+                            <strong class="d-block text-dark">BỘ QUÀ LAPTOP</strong>
+                            <span class="text-danger fw-bold">Trị giá đến 3 triệu</span>
+                            <small class="d-block text-muted mt-1">Xem ưu đãi <i class="bi bi-arrow-right"></i></small>
+                        </div>
+                    </a>
+                    <a href="#apple" class="hero-side-card side-card-phone text-decoration-none p-3 rounded-3 d-flex flex-column justify-content-between">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary">DEAL</span>
+                            <i class="bi bi-phone fs-3 text-primary"></i>
+                        </div>
+                        <div class="mt-2">
+                            <strong class="d-block text-dark">IPHONE &amp; IPAD</strong>
+                            <span class="text-primary fw-bold">Giảm ngay 2 triệu</span>
+                            <small class="d-block text-muted mt-1">Mua ngay <i class="bi bi-arrow-right"></i></small>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CAM KẾT DỊCH VỤ (SERVICE STRIP) -->
+    <section class="service-strip py-3 my-2">
+        <div class="container-site">
+            <div class="service-strip-inner d-flex flex-wrap justify-content-between bg-white p-3 rounded-3 shadow-sm">
+                <div class="service-item d-flex align-items-center gap-3">
+                    <i class="bi bi-truck fs-2 text-primary"></i>
+                    <div>
+                        <strong class="d-block text-dark">Miễn phí vận chuyển</strong>
+                        <span class="text-muted small">Đơn hàng từ 500.000₫</span>
+                    </div>
+                </div>
+                <div class="service-item d-flex align-items-center gap-3">
+                    <i class="bi bi-shield-check fs-2 text-success"></i>
+                    <div>
+                        <strong class="d-block text-dark">Bảo hành chính hãng</strong>
+                        <span class="text-muted small">Lên đến 36 tháng 100%</span>
+                    </div>
+                </div>
+                <div class="service-item d-flex align-items-center gap-3">
+                    <i class="bi bi-arrow-repeat fs-2 text-warning"></i>
+                    <div>
+                        <strong class="d-block text-dark">Đổi trả 1:1 miễn phí</strong>
+                        <span class="text-muted small">Trong 30 ngày đầu tiên</span>
+                    </div>
+                </div>
+                <div class="service-item d-flex align-items-center gap-3">
+                    <i class="bi bi-headset fs-2 text-danger"></i>
+                    <div>
+                        <strong class="d-block text-dark">Hỗ trợ kỹ thuật 24/7</strong>
+                        <span class="text-muted small">Hotline: 1800 6867</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. KHỐI ICON DANH MỤC NHANH -->
+    <section class="cat-icons-section py-2">
+        <div class="container-site">
+            <div class="row g-2 row-cols-4 row-cols-sm-4 row-cols-md-8 text-center">
+                <div class="col">
+                    <a href="#laptop" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up">
+                        <div class="cat-icon-img mb-1 text-primary fs-3"><i class="bi bi-laptop"></i></div>
+                        <span class="cat-icon-label small text-dark fw-semibold d-block">Laptop</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#pc" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up">
+                        <div class="cat-icon-img mb-1 text-primary fs-3"><i class="bi bi-pc-display"></i></div>
+                        <span class="cat-icon-label small text-dark fw-semibold d-block">PC Gaming</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#components" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up">
+                        <div class="cat-icon-img mb-1 text-primary fs-3"><i class="bi bi-cpu"></i></div>
+                        <span class="cat-icon-label small text-dark fw-semibold d-block">Linh kiện</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#monitors" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up">
+                        <div class="cat-icon-img mb-1 text-primary fs-3"><i class="bi bi-display"></i></div>
+                        <span class="cat-icon-label small text-dark fw-semibold d-block">Màn hình</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#keyboard" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up">
+                        <div class="cat-icon-img mb-1 text-primary fs-3"><i class="bi bi-keyboard"></i></div>
+                        <span class="cat-icon-label small text-dark fw-semibold d-block">Bàn phím cơ</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#mouse" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up">
+                        <div class="cat-icon-img mb-1 text-primary fs-3"><i class="bi bi-mouse"></i></div>
+                        <span class="cat-icon-label small text-dark fw-semibold d-block">Chuột Gaming</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#buildpc" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up">
+                        <div class="cat-icon-img mb-1 text-info fs-3"><i class="bi bi-tools"></i></div>
+                        <span class="cat-icon-label small text-dark fw-semibold d-block">Build PC</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#flashsale" class="cat-icon-card text-decoration-none d-block bg-white p-2 rounded-3 shadow-sm hover-up border border-danger">
+                        <div class="cat-icon-img mb-1 text-danger fs-3"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <span class="cat-icon-label small text-danger fw-bold d-block">Flash Sale</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FLASH SALE SECTION -->
+    <section class="flash-sale-section py-4" id="flashsale">
+        <div class="container-site">
+            <div class="flash-sale-wrap p-3 rounded-4 shadow-sm" style="background: linear-gradient(135deg, #FFF1F0 0%, #FFFFFF 100%); border: 2px solid #FFA39E;">
+                <div class="flash-sale-head d-flex flex-wrap justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center flex-wrap gap-3">
+                        <h2 class="flash-sale-title text-danger m-0 fw-bolder fs-4">
+                            <i class="bi bi-lightning-charge-fill"></i> FLASH SALE GIỜ VÀNG
+                        </h2>
+                        <!-- Đồng hồ đếm ngược -->
+                        <div class="countdown d-flex align-items-center gap-1">
+                            <span class="badge bg-danger fs-6 px-2 py-1" id="cd-h">02</span>
+                            <span class="fw-bold text-danger">:</span>
+                            <span class="badge bg-danger fs-6 px-2 py-1" id="cd-m">45</span>
+                            <span class="fw-bold text-danger">:</span>
+                            <span class="badge bg-danger fs-6 px-2 py-1" id="cd-s">30</span>
+                        </div>
+                        <span class="badge bg-warning text-dark"><i class="bi bi-fire"></i> Đã bán 68%</span>
+                    </div>
+                    <a href="products.html" class="btn btn-outline-danger btn-sm rounded-pill">Xem tất cả <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+                <!-- Danh sách sản phẩm Flash Sale -->
+                <div class="row g-3 row-cols-2 row-cols-md-4">
+                    
+                    <!-- Sản phẩm 1 -->
+                    <div class="col">
+                        <article class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2">-9%</span>
+                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">HOT</span>
+                            <a href="product-detail.html" class="product-img-wrap text-center my-2 d-block" style="height: 180px;">
+                                <img src="assets/img/products/laptop-rog.png" alt="Laptop Asus ROG Strix G16" class="img-fluid h-100 object-fit-contain">
+                            </a>
+                            <div class="product-info flex-grow-1 d-flex flex-column">
+                                <h3 class="product-name fs-6 fw-bold text-dark mb-1" title="Laptop Asus ROG Strix G16 G614JV">
+                                    <a href="product-detail.html" class="text-dark text-decoration-none">Laptop Asus ROG Strix G16 G614JV</a>
+                                </h3>
+                                <p class="text-muted small mb-2">16GB DDR5 | 512GB SSD | IPS 165Hz</p>
+                                <div class="mt-auto">
+                                    <div class="price-block">
+                                        <span class="price-sale text-danger fs-5 fw-bolder">36.490.000₫</span>
+                                        <span class="price-old text-decoration-line-through text-muted small ms-2">39.990.000₫</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> Trả góp 0%</small>
+                                        <button class="btn btn-sm btn-primary rounded-pill btn-add-cart" onclick="addToCart('Laptop Asus ROG Strix G16')">
+                                            <i class="bi bi-cart-plus"></i> Mua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Sản phẩm 2 -->
+                    <div class="col">
+                        <article class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2">-8%</span>
+                            <div class="product-img-wrap text-center my-2" style="height: 180px;">
+                                <img src="assets/img/products/laptop-predator.png" alt="Laptop Acer Predator Helios Neo 16" class="img-fluid h-100 object-fit-contain">
+                            </div>
+                            <div class="product-info flex-grow-1 d-flex flex-column">
+                                <h3 class="product-name fs-6 fw-bold text-dark mb-1" title="Laptop Acer Predator Helios Neo 16">
+                                    Laptop Acer Predator Helios Neo 16 (i7-13700HX / RTX 4060)
+                                </h3>
+                                <p class="text-muted small mb-2">16GB RAM | 512GB SSD | 165Hz WQXGA</p>
+                                <div class="mt-auto">
+                                    <div class="price-block">
+                                        <span class="price-sale text-danger fs-5 fw-bolder">35.990.000₫</span>
+                                        <span class="price-old text-decoration-line-through text-muted small ms-2">38.990.000₫</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> Trả góp 0%</small>
+                                        <button class="btn btn-sm btn-primary rounded-pill btn-add-cart" onclick="addToCart('Laptop Acer Predator Helios 16')">
+                                            <i class="bi bi-cart-plus"></i> Mua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Sản phẩm 3 -->
+                    <div class="col">
+                        <article class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2">-9%</span>
+                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">HOT</span>
+                            <div class="product-img-wrap text-center my-2" style="height: 180px;">
+                                <img src="assets/img/products/macbook-air.png" alt="Apple MacBook Air 13 inch M2" class="img-fluid h-100 object-fit-contain">
+                            </div>
+                            <div class="product-info flex-grow-1 d-flex flex-column">
+                                <h3 class="product-name fs-6 fw-bold text-dark mb-1" title="Apple MacBook Air 13 inch M2">
+                                    Apple MacBook Air 13 inch M2 2022 (8GB RAM / 256GB SSD)
+                                </h3>
+                                <p class="text-muted small mb-2">Chip Apple M2 8-Core | Màn Liquid Retina</p>
+                                <div class="mt-auto">
+                                    <div class="price-block">
+                                        <span class="price-sale text-danger fs-5 fw-bolder">24.490.000₫</span>
+                                        <span class="price-old text-decoration-line-through text-muted small ms-2">26.990.000₫</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> Trả góp 0%</small>
+                                        <button class="btn btn-sm btn-primary rounded-pill btn-add-cart" onclick="addToCart('Apple MacBook Air M2')">
+                                            <i class="bi bi-cart-plus"></i> Mua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Sản phẩm 4 -->
+                    <div class="col">
+                        <article class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2">-13%</span>
+                            <div class="product-img-wrap text-center my-2" style="height: 180px;">
+                                <img src="assets/img/products/pc-apex.png" alt="PC Gaming Nova Shop Apex Ultra" class="img-fluid h-100 object-fit-contain">
+                            </div>
+                            <div class="product-info flex-grow-1 d-flex flex-column">
+                                <h3 class="product-name fs-6 fw-bold text-dark mb-1" title="PC Gaming Nova Shop Apex Ultra">
+                                    PC Gaming Nova Shop Apex Ultra (i5-13400F / RTX 3060)
+                                </h3>
+                                <p class="text-muted small mb-2">RAM 16GB | 500GB NVMe | Nguồn 650W</p>
+                                <div class="mt-auto">
+                                    <div class="price-block">
+                                        <span class="price-sale text-danger fs-5 fw-bolder">19.990.000₫</span>
+                                        <span class="price-old text-decoration-line-through text-muted small ms-2">22.990.000₫</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                        <small class="text-success"><i class="bi bi-credit-card"></i> Trả góp 0%</small>
+                                        <button class="btn btn-sm btn-primary rounded-pill btn-add-cart" onclick="addToCart('PC Gaming Nova Apex Ultra')">
+                                            <i class="bi bi-cart-plus"></i> Mua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. SẢN PHẨM NỔI BẬT (FEATURED PRODUCTS) -->
+    <section class="products-section py-4">
+        <div class="container-site">
+            <div class="section-heading d-flex flex-wrap justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center gap-3">
+                    <h2 class="section-title fs-4 fw-bold m-0 text-dark">Sản Phẩm Nổi Bật</h2>
+                    <ul class="nav nav-pills d-none d-md-flex" id="pills-tab">
+                        <li class="nav-item"><a class="nav-link active py-1 px-3" href="#tab-all">Tất cả</a></li>
+                        <li class="nav-item"><a class="nav-link py-1 px-3 text-secondary" href="#tab-laptop">Laptop</a></li>
+                        <li class="nav-item"><a class="nav-link py-1 px-3 text-secondary" href="#tab-pc">PC Gaming</a></li>
+                        <li class="nav-item"><a class="nav-link py-1 px-3 text-secondary" href="#tab-linhkien">Linh kiện</a></li>
+                        <li class="nav-item"><a class="nav-link py-1 px-3 text-secondary" href="#tab-manhinh">Màn hình</a></li>
+                    </ul>
+                </div>
+                <a href="products.html" class="btn btn-link text-primary text-decoration-none fw-semibold">Xem tất cả <i class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <!-- Lưới 8 sản phẩm nổi bật -->
+            <div class="row g-3 row-cols-2 row-cols-sm-3 row-cols-md-4">
+                
+                <!-- Card 1: Laptop ROG -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-9%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/laptop-rog.png" alt="Laptop ROG" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">Laptop Asus ROG Strix G16 G614JV</h4>
+                        <p class="text-muted small mb-2">i7-13650HX / RTX 4060 / 16GB / 512GB</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">36.490.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">39.990.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.9 (125 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('Laptop Asus ROG G16')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Acer Predator -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-8%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/laptop-predator.png" alt="Acer Predator" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">Laptop Acer Predator Helios Neo 16</h4>
+                        <p class="text-muted small mb-2">i7-13700HX / RTX 4060 / 16GB / 512GB</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">35.990.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">38.990.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.8 (98 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('Acer Predator Helios 16')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: MacBook Air M2 -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-9%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/macbook-air.png" alt="MacBook Air M2" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">Apple MacBook Air 13 inch M2 2022</h4>
+                        <p class="text-muted small mb-2">8GB Unified RAM / 256GB SSD Retina</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">24.490.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">26.990.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 5.0 (210 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('MacBook Air M2')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: PC Apex Ultra -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-13%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/pc-apex.png" alt="PC Apex Ultra" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">PC Gaming Nova Shop Apex Ultra</h4>
+                        <p class="text-muted small mb-2">i5-13400F / RTX 3060 12GB / 16GB RAM</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">19.990.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">22.990.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.9 (142 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('PC Gaming Nova Apex')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: VGA RTX 4070 SUPER -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-6%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/vga-4070.png" alt="VGA ASUS TUF 4070" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">Card ASUS TUF Gaming RTX 4070 SUPER</h4>
+                        <p class="text-muted small mb-2">12GB GDDR6X / 192-bit / 3 Quạt tản</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">18.890.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">19.990.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.9 (75 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('Card ASUS TUF RTX 4070')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Màn hình LG 27 inch 2K -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-16%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/monitor-lg.png" alt="Màn hình LG 27 inch" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">Màn Hình Gaming LG UltraGear 27GR75Q-B</h4>
+                        <p class="text-muted small mb-2">27 inch 2K QHD / IPS 165Hz / 1ms GtG</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">6.290.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">7.490.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.8 (189 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('Màn hình LG 27GR75Q-B')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: Bàn phím cơ Logitech G515 -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-14%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/keyboard-logi.png" alt="Bàn phím cơ Logitech G515" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">Bàn Phím Cơ Logitech G515 LIGHTSPEED</h4>
+                        <p class="text-muted small mb-2">Không dây TKL / Low-Profile / LED RGB</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">2.990.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">3.490.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.7 (86 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('Bàn phím Logitech G515')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8: Chuột Logitech G PRO X 2 -->
+                <div class="col">
+                    <div class="product-card bg-white p-3 rounded-3 shadow-sm h-100 d-flex flex-column position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-10%</span>
+                        <div class="text-center my-2" style="height: 170px;">
+                            <img src="assets/img/products/mouse-logi.png" alt="Chuột Logitech G PRO X" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <h4 class="fs-6 fw-bold text-dark mb-1">Chuột Logitech G PRO X SUPERLIGHT 2</h4>
+                        <p class="text-muted small mb-2">Trọng lượng 60g / Cảm biến HERO 2 32K</p>
+                        <div class="mt-auto">
+                            <span class="text-danger fw-bolder fs-5 d-block">3.490.000₫</span>
+                            <span class="text-decoration-line-through text-muted small">3.890.000₫</span>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <span class="text-warning small"><i class="bi bi-star-fill"></i> 5.0 (340 đánh giá)</span>
+                                <button class="btn btn-sm btn-primary rounded-pill" onclick="addToCart('Chuột Logitech G PRO X')"><i class="bi bi-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. THƯƠNG HIỆU NỔI BẬT (BRANDS) -->
+    <section class="brands-section py-4 my-2">
+        <div class="container-site">
+            <h3 class="section-title fs-5 fw-bold mb-3 text-dark">Thương Hiệu Đồng Hành Chính Hãng</h3>
+            <div class="brands-row d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">ASUS</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">ACER</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">APPLE</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">DELL</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">HP</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">LENOVO</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">MSI</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">SAMSUNG</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">LG</span>
+                <span class="badge bg-white text-secondary border px-4 py-2 fs-6 rounded-3 shadow-sm">LOGITECH</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SITE FOOTER -->
+    <footer class="site-footer bg-dark text-white pt-5 pb-3 mt-auto">
+        <div class="container-site">
+            <div class="row g-4">
+                
+                <!-- Cột 1: Thông tin công ty -->
+                <div class="col-12 col-md-4">
+                    <a href="index.html" class="d-flex align-items-center gap-2 text-white text-decoration-none mb-3">
+                        <img src="assets/img/logo.svg" alt="Nova Shop" width="36" height="36">
+                        <strong class="fs-4">NOVA <span class="text-primary">SHOP</span></strong>
+                    </a>
+                    <p class="text-secondary small">
+                        Nova Shop — Hệ thống bán lẻ công nghệ hàng đầu: Laptop, PC Gaming, Linh kiện, Màn hình chính hãng. Cam kết giá tốt nhất, trả góp 0%, bảo hành 1 đổi 1 tận tâm.
+                    </p>
+                    <p class="small mb-1"><i class="bi bi-telephone text-primary me-2"></i>Hotline: <strong>1800 6867</strong> (Miễn phí)</p>
+                    <p class="small mb-1"><i class="bi bi-envelope text-primary me-2"></i>Email: hotro@novashop.vn</p>
+                    <p class="small"><i class="bi bi-geo-alt text-primary me-2"></i>Tầng 11, Toà nhà FPT, Phạm Văn Bạch, Cầu Giấy, Hà Nội</p>
+                </div>
+
+                <!-- Cột 2: Chính sách -->
+                <div class="col-6 col-md-2">
+                    <h5 class="fs-6 fw-bold mb-3 text-uppercase text-light">Chính sách</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#policy" class="text-secondary text-decoration-none">Chính sách bảo hành</a></li>
+                        <li class="mb-2"><a href="#policy" class="text-secondary text-decoration-none">Chính sách đổi trả 1:1</a></li>
+                        <li class="mb-2"><a href="#policy" class="text-secondary text-decoration-none">Chính sách giao hàng</a></li>
+                        <li class="mb-2"><a href="#policy" class="text-secondary text-decoration-none">Bảo mật thông tin</a></li>
+                        <li class="mb-2"><a href="#policy" class="text-secondary text-decoration-none">Hướng dẫn trả góp 0%</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Hỗ trợ khách hàng -->
+                <div class="col-6 col-md-3">
+                    <h5 class="fs-6 fw-bold mb-3 text-uppercase text-light">Hỗ trợ khách hàng</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#stores" class="text-secondary text-decoration-none">Hệ thống showroom</a></li>
+                        <li class="mb-2"><a href="#orders" class="text-secondary text-decoration-none">Tra cứu tình trạng đơn</a></li>
+                        <li class="mb-2"><a href="#support" class="text-secondary text-decoration-none">Yêu cầu bảo hành</a></li>
+                        <li class="mb-2"><a href="#corporate" class="text-secondary text-decoration-none">Khách hàng doanh nghiệp</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-secondary text-decoration-none">Góp ý &amp; khiếu nại</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 4: Phương thức thanh toán -->
+                <div class="col-12 col-md-3">
+                    <h5 class="fs-6 fw-bold mb-3 text-uppercase text-light">Thanh toán an toàn</h5>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge bg-secondary px-3 py-2">VISA</span>
+                        <span class="badge bg-secondary px-3 py-2">MasterCard</span>
+                        <span class="badge bg-danger px-3 py-2">MoMo</span>
+                        <span class="badge bg-primary px-3 py-2">ZaloPay</span>
+                        <span class="badge bg-info text-dark px-3 py-2">VNPAY-QR</span>
+                    </div>
+                    <h5 class="fs-6 fw-bold mb-2 text-uppercase text-light">Kết nối với chúng tôi</h5>
+                    <div class="d-flex gap-2">
+                        <a href="#facebook" class="btn btn-outline-secondary btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="#youtube" class="btn btn-outline-secondary btn-sm rounded-circle"><i class="bi bi-youtube"></i></a>
+                        <a href="#tiktok" class="btn btn-outline-secondary btn-sm rounded-circle"><i class="bi bi-tiktok"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-top border-secondary mt-4 pt-3 text-center text-secondary small">
+                © 2026 Nova Shop - Dự án mẫu FPT Polytechnic. Mọi quyền được bảo lưu.
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST THÔNG BÁO THÊM GIỎ HÀNG -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="cartToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-check-circle-fill me-2"></i> Đã thêm <strong id="toastProductName">Sản phẩm</strong> vào giỏ hàng!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Script bổ trợ tương tác -->
+    <script>
+        // Toggle Panel Danh mục
+        const btnCategories = document.getElementById('btnCategories');
+        const categoriesPanel = document.getElementById('categoriesPanel');
+        if (btnCategories && categoriesPanel) {
+            btnCategories.addEventListener('click', (e) => {
+                e.stopPropagation();
+                categoriesPanel.classList.toggle('show');
+            });
+            document.addEventListener('click', (e) => {
+                if (!categoriesPanel.contains(e.target) && !btnCategories.contains(e.target)) {
+                    categoriesPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // Đếm ngược Flash Sale
+        let totalSeconds = 2 * 3600 + 45 * 60 + 30;
+        setInterval(() => {
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                const h = Math.floor(totalSeconds / 3600);
+                const m = Math.floor((totalSeconds % 3600) / 60);
+                const s = totalSeconds % 60;
+                const pad = (n) => n < 10 ? '0' + n : n;
+                const elH = document.getElementById('cd-h');
+                const elM = document.getElementById('cd-m');
+                const elS = document.getElementById('cd-s');
+                if (elH) elH.textContent = pad(h);
+                if (elM) elM.textContent = pad(m);
+                if (elS) elS.textContent = pad(s);
+            }
+        }, 1000);
+
+        // Nút thêm vào giỏ hàng & tăng số lượng
+        let cartCount = 3;
+        function addToCart(productName) {
+            cartCount++;
+            const badge = document.getElementById('cartCount');
+            if (badge) badge.textContent = cartCount;
+
+            const toastEl = document.getElementById('cartToast');
+            const toastName = document.getElementById('toastProductName');
+            if (toastName) toastName.textContent = productName;
+            if (toastEl && window.bootstrap) {
+                const toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+                toast.show();
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+/* Admin panel specific styles */
+.pv-admin-sidebar {
+    background-color: #1e293b !important;
+}
+
+.pv-admin-sidebar .nav-link {
+    color: #94a3b8 !important;
+    border-radius: 8px;
+    font-size: 0.925rem;
+    padding: 0.65rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.pv-admin-sidebar .nav-link:hover {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.pv-admin-sidebar .nav-link.active {
+    color: #fff !important;
+    background-color: var(--pv-primary) !important;
+}
+

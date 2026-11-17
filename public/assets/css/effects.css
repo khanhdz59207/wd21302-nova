@@ -1,0 +1,815 @@
+﻿/* ============================================================
+   Nova Shop — Visual Effects & Animations
+   ============================================================ */
+
+/* ─── 1. PAGE LOADING PROGRESS BAR (top) ──────────────────── */
+#nprogress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #E30613, #FF6600, #E30613);
+    background-size: 200% 100%;
+    z-index: 9999;
+    border-radius: 0 2px 2px 0;
+    transition: width 0.3s ease;
+    animation: progressShimmer 1.2s linear infinite;
+    box-shadow: 0 0 10px rgba(227, 6, 19, 0.6);
+}
+
+#nprogress-bar.done {
+    width: 100% !important;
+    opacity: 0;
+    transition: width 0.2s ease, opacity 0.4s ease 0.2s;
+}
+
+@keyframes progressShimmer {
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: -200% center;
+    }
+}
+
+/* ─── 2. SCROLL REVEAL (fade-up khi cuộn vào viewport) ─────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s cubic-bezier(.22, .61, .36, 1),
+        transform 0.55s cubic-bezier(.22, .61, .36, 1);
+}
+
+.reveal.reveal-left {
+    transform: translateX(-28px);
+}
+
+.reveal.reveal-right {
+    transform: translateX(28px);
+}
+
+.reveal.reveal-scale {
+    transform: scale(0.92);
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger delays for grids */
+.reveal-delay-1 {
+    transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.24s;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.32s;
+}
+
+.reveal-delay-5 {
+    transition-delay: 0.40s;
+}
+
+/* ─── 3. SKELETON LOADING (sản phẩm đang tải) ─────────────── */
+@keyframes skeletonPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeletonSlide 1.4s infinite ease-in-out;
+    border-radius: 4px;
+}
+
+@keyframes skeletonSlide {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton-card {
+    background: #fff;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 12px;
+}
+
+.skeleton-img {
+    height: 180px;
+    border-radius: 0;
+}
+
+.skeleton-title {
+    height: 14px;
+    margin: 12px 12px 6px;
+}
+
+.skeleton-title-short {
+    height: 14px;
+    width: 60%;
+    margin: 0 12px 10px;
+}
+
+.skeleton-price {
+    height: 18px;
+    width: 50%;
+    margin: 0 12px;
+}
+
+/* ─── 4. PRODUCT CARD — Nâng cấp hiệu ứng ─────────────────── */
+.product-card {
+    transition: box-shadow 0.25s ease, transform 0.25s ease,
+        border-color 0.25s ease !important;
+    will-change: transform;
+}
+
+.product-card:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.13) !important;
+    border-color: #ccc !important;
+    z-index: 2;
+}
+
+/* Hình ảnh zoom mượt */
+.product-img {
+    transition: transform 0.4s cubic-bezier(.25, .46, .45, .94) !important;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.07) !important;
+}
+
+/* Badge bounce khi hover */
+.product-card:hover .badge-sale {
+    animation: badgePop 0.3s ease;
+}
+
+@keyframes badgePop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ─── 5. ADD-TO-CART — Bay vào giỏ hàng ───────────────────── */
+.fly-item {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: hidden;
+    background: #fff;
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: none;
+}
+
+.fly-item.flying {
+    transition: left 0.65s cubic-bezier(.55, 0, .45, 1),
+        top 0.65s cubic-bezier(.55, 0, .45, 1),
+        transform 0.65s ease,
+        opacity 0.65s ease;
+    transform: scale(0.3);
+    opacity: 0;
+}
+
+/* Cart icon pulse khi thêm thành công */
+@keyframes cartPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.35);
+    }
+
+    60% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cart-pulse {
+    animation: cartPulse 0.4s ease;
+}
+
+/* Badge nhảy số */
+@keyframes badgeCount {
+    0% {
+        transform: scale(1.6) rotate(-8deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.badge-count-animate {
+    animation: badgeCount 0.35s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+/* ─── 6. TOAST NOTIFICATION ─────────────────────────────────── */
+#toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9997;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.ns-toast {
+    background: #2D2D2D;
+    color: #fff;
+    padding: 12px 18px 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 240px;
+    max-width: 340px;
+    pointer-events: all;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1),
+        opacity 0.3s ease;
+    border-left: 4px solid var(--primary);
+}
+
+.ns-toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.ns-toast.success {
+    border-left-color: #00A651;
+}
+
+.ns-toast.warning {
+    border-left-color: #FF6600;
+}
+
+.ns-toast .toast-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.ns-toast .toast-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    line-height: 1;
+}
+
+.ns-toast .toast-close:hover {
+    color: #fff;
+}
+
+/* ─── 7. HEADER SHRINK khi scroll ──────────────────────────── */
+.main-header {
+    transition: box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.main-header.is-scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.main-header.header-compact .main-header-inner {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+/* ─── 8. SEARCH BAR — Autocomplete dropdown ────────────────── */
+.search-wrapper {
+    position: relative;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 1100;
+    max-height: 320px;
+    overflow-y: auto;
+    display: none;
+    animation: dropdownIn 0.2s ease;
+}
+
+.search-suggestions.show {
+    display: block;
+}
+
+@keyframes dropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+
+.suggestion-item:hover {
+    background: #FFF0F0;
+}
+
+.suggestion-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.suggestion-item .s-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+}
+
+.suggestion-item .s-price {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.suggestion-title {
+    font-size: 11px;
+    color: #999;
+    padding: 8px 14px 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* ─── 9. COUNTDOWN TIMER — Flip effect ─────────────────────── */
+.countdown-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-flip {
+    animation: flipNum 0.35s ease;
+}
+
+@keyframes flipNum {
+    0% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+/* Countdown block glow */
+.countdown-block {
+    box-shadow: 0 2px 10px rgba(227, 6, 19, 0.4);
+}
+
+/* ─── 10. IMAGE LAZY LOAD — Blur-up effect ─────────────────── */
+.lazy-img {
+    filter: blur(8px);
+    transition: filter 0.5s ease, opacity 0.5s ease;
+    opacity: 0.6;
+}
+
+.lazy-img.loaded {
+    filter: blur(0);
+    opacity: 1;
+}
+
+/* ─── 11. BUTTON RIPPLE EFFECT ──────────────────────────────── */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: rippleAnim 0.55s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleAnim {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ─── 12. SECTION HEADING — Gradient animated line ─────────── */
+.section-title-line {
+    display: inline-block;
+    position: relative;
+}
+
+.section-title-line::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), #FF6600, var(--primary));
+    background-size: 200% 100%;
+    border-radius: 3px;
+    animation: lineFlow 2s linear infinite;
+}
+
+@keyframes lineFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* ─── 13. FLASH SALE HEADER — Neon glow pulse ──────────────── */
+.flash-sale-title {
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow: 0 0 6px rgba(227, 6, 19, 0.4);
+    }
+
+    to {
+        text-shadow: 0 0 16px rgba(227, 6, 19, 0.8), 0 0 30px rgba(255, 100, 0, 0.4);
+    }
+}
+
+/* ─── 14. BACK TO TOP BUTTON ────────────────────────────────── */
+#back-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(227, 6, 19, 0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.15s;
+    z-index: 1000;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(227, 6, 19, 0.5);
+}
+
+/* ─── 15. HOVER QUICK-VIEW OVERLAY (Product card) ──────────── */
+.product-card .quick-view-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 3;
+}
+
+.product-card:hover .quick-view-overlay {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn-quick-view {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-quick-view:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* ─── 16. WISHLIST HEART BUTTON ─────────────────────────────── */
+.btn-wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ccc;
+    transition: all 0.2s ease;
+    opacity: 0;
+    transform: scale(0.7);
+    z-index: 3;
+}
+
+.product-card:hover .btn-wishlist {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn-wishlist:hover,
+.btn-wishlist.active {
+    color: #E30613;
+    border-color: #E30613;
+    background: #FFF0F0;
+    transform: scale(1.1);
+}
+
+.btn-wishlist.active {
+    animation: heartPop 0.3s ease;
+}
+
+@keyframes heartPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ─── 17. CATEGORY NAV — Underline slide ───────────────────── */
+.nav-item .nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.nav-item .nav-link:hover::before {
+    width: 80%;
+}
+
+/* ─── 18. IMAGE HOVER MAGNIFIER CURSOR ──────────────────────── */
+.product-img-wrap:hover {
+    cursor: zoom-in;
+}
+
+/* ─── 19. PRICE TAG — Wiggle animation khi hover ───────────── */
+.price-sale {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover .price-sale {
+    animation: priceWiggle 0.4s ease;
+}
+
+@keyframes priceWiggle {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-2deg) scale(1.05);
+    }
+
+    75% {
+        transform: rotate(2deg) scale(1.05);
+    }
+}
+
+/* ─── 20. SMOOTH SCROLL snap cho category row ───────────────── */
+.product-scroll-row {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.product-scroll-row>* {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* ─── 21. BREADCRUMB — fade-in animation ───────────────────── */
+.breadcrumb {
+    animation: breadcrumbIn 0.4s ease;
+}
+
+@keyframes breadcrumbIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ─── 22. INPUT FOCUS GLOW ──────────────────────────────────── */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.12) !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* ─── 23. PAGE TRANSITIONS ──────────────────────────────────── */
+.page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--primary);
+    z-index: 9996;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.35s cubic-bezier(.76, 0, .24, 1);
+    pointer-events: none;
+}
+
+.page-transition-overlay.slide-in {
+    transform: scaleY(1);
+    transform-origin: bottom;
+}
+
+.page-transition-overlay.slide-out {
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+/* ─── 24. PROMOTION BANNER — Shimmer effect ─────────────────── */
+.promo-banner-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-banner-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(105deg,
+            transparent 40%,
+            rgba(255, 255, 255, 0.15) 50%,
+            transparent 60%);
+    animation: bannerShimmer 2.5s infinite;
+}
+
+@keyframes bannerShimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+/* ─── 25. FOOTER LINKS — underline draw ─────────────────────── */
+.footer-links li a {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary);
+    transition: width 0.25s ease;
+}
+
+.footer-links li a:hover::after {
+    width: 100%;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+    #toast-container {
+        bottom: 16px;
+        right: 12px;
+        left: 12px;
+    }
+
+    .ns-toast {
+        min-width: unset;
+        width: 100%;
+    }
+
+    #back-to-top {
+        bottom: 70px;
+        right: 16px;
+    }
+}

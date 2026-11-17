@@ -1,0 +1,2030 @@
+/* ============================================================
+   Nova Shop — store design system
+   Scoped to .nova-store
+   ============================================================ */
+
+.nova-store {
+    --nova-ink: #0A0F1A;
+    --nova-ink-soft: #141B29;
+    --nova-blue: #0B57D0;
+    --nova-blue-deep: #0646A8;
+    --nova-blue-soft: #EAF1FF;
+    --nova-yellow: #FFB800;
+    --nova-red: #E5484D;
+    --nova-green: #12B76A;
+    --nova-canvas: #F4F6FA;
+    --nova-paper: #FFFFFF;
+    --nova-line: #E3E8F0;
+    --nova-line-strong: #CDD6E4;
+    --nova-muted: #77839A;
+    --nova-muted-strong: #4B5668;
+    --nova-font: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --nova-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    background: var(--nova-canvas);
+    color: var(--nova-ink);
+    font-family: var(--nova-font);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.nova-store *,
+.nova-store *::before,
+.nova-store *::after {
+    box-sizing: border-box;
+}
+
+.nova-store h1,
+.nova-store h2,
+.nova-store h3,
+.nova-store h4,
+.nova-store h5,
+.nova-store h6 {
+    font-family: var(--nova-font);
+    color: var(--nova-ink);
+}
+
+.nova-store img {
+    max-width: 100%;
+}
+
+.nova-store ::selection {
+    background: var(--nova-blue);
+    color: #fff;
+}
+
+.nova-store a:focus-visible,
+.nova-store button:focus-visible {
+    outline: 2px solid var(--nova-blue);
+    outline-offset: 2px;
+}
+
+.nova-store .nova-deal a:focus-visible,
+.nova-store .nova-deal button:focus-visible,
+.nova-store .nova-build a:focus-visible,
+.nova-store .nova-build button:focus-visible,
+.nova-store .nova-footer a:focus-visible,
+.nova-store .nova-footer button:focus-visible {
+    outline-color: var(--nova-yellow);
+}
+
+.nova-skip {
+    position: fixed;
+    top: -70px;
+    left: 16px;
+    z-index: 2000;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--nova-ink);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top .18s ease;
+}
+
+.nova-skip:focus {
+    top: 16px;
+    color: #fff;
+}
+
+.nova-shell {
+    width: min(1240px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+/* ------------------------------------------------------------
+   Shared type / buttons / links
+   ------------------------------------------------------------ */
+
+.nova-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+    font-family: var(--nova-mono);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--nova-blue);
+}
+
+.nova-eyebrow--light {
+    color: var(--nova-yellow);
+}
+
+.nova-eyebrow__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--nova-yellow);
+    box-shadow: 0 0 0 3px rgba(255, 184, 0, .18);
+    flex-shrink: 0;
+}
+
+.nova-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 22px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    font-family: var(--nova-font);
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease,
+                transform .18s ease, box-shadow .18s ease;
+}
+
+.nova-btn i {
+    font-size: 1.05em;
+    transition: transform .18s ease;
+}
+
+.nova-btn:hover i {
+    transform: translateX(2px);
+}
+
+.nova-btn--primary {
+    background: var(--nova-blue);
+    color: #fff;
+    box-shadow: 0 10px 24px rgba(11, 87, 208, .22);
+}
+
+.nova-btn--primary:hover {
+    background: var(--nova-blue-deep);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.nova-btn--ghost {
+    background: #fff;
+    color: var(--nova-ink);
+    border-color: var(--nova-line-strong);
+}
+
+.nova-btn--ghost:hover {
+    border-color: var(--nova-ink);
+    color: var(--nova-ink);
+}
+
+.nova-btn--light {
+    background: #fff;
+    color: var(--nova-ink);
+}
+
+.nova-btn--light:hover {
+    background: var(--nova-yellow);
+    color: var(--nova-ink);
+    transform: translateY(-1px);
+}
+
+.nova-btn--outline-light {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, .28);
+}
+
+.nova-btn--outline-light:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+}
+
+.nova-btn--block {
+    width: 100%;
+}
+
+.nova-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--nova-ink);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nova-link i {
+    font-size: 12px;
+    transition: transform .18s ease;
+}
+
+.nova-link:hover {
+    color: var(--nova-blue);
+}
+
+.nova-link:hover i {
+    transform: translate(2px, -1px);
+}
+
+.nova-link--light {
+    color: #fff;
+}
+
+.nova-link--light:hover {
+    color: var(--nova-yellow);
+}
+
+/* ------------------------------------------------------------
+   Top bar
+   ------------------------------------------------------------ */
+
+.nova-topbar {
+    background: var(--nova-ink);
+    color: rgba(255, 255, 255, .62);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.nova-topbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 38px;
+}
+
+.nova-topbar__left,
+.nova-topbar__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nova-topbar a {
+    color: rgba(255, 255, 255, .74);
+    text-decoration: none;
+    transition: color .18s ease;
+}
+
+.nova-topbar a:hover {
+    color: #fff;
+}
+
+.nova-topbar__left a {
+    color: #fff;
+    font-weight: 600;
+}
+
+.nova-topbar__left i {
+    color: var(--nova-yellow);
+    font-size: 11px;
+    margin-right: 2px;
+}
+
+.nova-topbar__dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .3);
+    flex-shrink: 0;
+}
+
+.nova-topbar__hello strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.nova-topbar__admin {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 184, 0, .14);
+    color: var(--nova-yellow) !important;
+    font-weight: 600;
+}
+
+.nova-topbar__signup {
+    padding-bottom: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, .36);
+}
+
+/* ------------------------------------------------------------
+   Header
+   ------------------------------------------------------------ */
+
+.nova-header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: rgba(255, 255, 255, .97);
+    border-bottom: 1px solid var(--nova-line);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: box-shadow .2s ease;
+}
+
+.nova-header.is-scrolled {
+    box-shadow: 0 12px 32px rgba(10, 15, 26, .08);
+}
+
+.nova-header__bar {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    height: 78px;
+}
+
+.nova-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.nova-brand img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.nova-brand__word {
+    color: var(--nova-ink);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: .01em;
+}
+
+.nova-brand__word span {
+    color: var(--nova-blue);
+}
+
+.nova-brand--light .nova-brand__word {
+    color: #fff;
+}
+
+.nova-brand--light .nova-brand__word span {
+    color: var(--nova-yellow);
+}
+
+.nova-menu-btn {
+    display: none;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: 1px solid var(--nova-line);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--nova-ink);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nova-menu-btn:hover {
+    border-color: var(--nova-ink);
+}
+
+.nova-nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.nova-nav a {
+    position: relative;
+    padding: 9px 11px;
+    border-radius: 8px;
+    color: var(--nova-muted-strong);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color .18s ease, background-color .18s ease;
+}
+
+.nova-nav a:hover {
+    color: var(--nova-ink);
+    background: var(--nova-canvas);
+}
+
+.nova-nav a.is-active {
+    color: var(--nova-blue);
+    font-weight: 600;
+}
+
+.nova-nav a.is-active::after {
+    content: "";
+    position: absolute;
+    left: 11px;
+    right: 11px;
+    bottom: 3px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--nova-blue);
+}
+
+.nova-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 160px;
+    height: 44px;
+    padding: 0 5px 0 42px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    background: var(--nova-canvas);
+    transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.nova-search:focus-within {
+    background: #fff;
+    border-color: var(--nova-blue);
+    box-shadow: 0 0 0 4px var(--nova-blue-soft);
+}
+
+.nova-search__icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--nova-muted);
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.nova-search input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 8px 0 0;
+    border: 0;
+    background: transparent;
+    color: var(--nova-ink);
+    font-family: var(--nova-font);
+    font-size: 13.5px;
+    outline: none;
+}
+
+.nova-search input::placeholder {
+    color: var(--nova-muted);
+}
+
+.nova-search button {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 8px;
+    background: var(--nova-ink);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .18s ease;
+}
+
+.nova-search button:hover {
+    background: var(--nova-blue);
+}
+
+.nova-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.nova-action {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 11px;
+    border-radius: 9px;
+    color: var(--nova-ink);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color .18s ease, color .18s ease;
+}
+
+.nova-action i {
+    font-size: 18px;
+}
+
+.nova-action:hover {
+    background: var(--nova-canvas);
+    color: var(--nova-blue);
+}
+
+.nova-action--cart {
+    background: var(--nova-canvas);
+}
+
+.nova-cart-badge {
+    display: inline-grid;
+    place-items: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: var(--nova-blue);
+    color: #fff;
+    font-family: var(--nova-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.nova-mobile-search {
+    display: none;
+    padding: 0 0 12px;
+}
+
+/* Mobile drawer */
+.nova-drawer {
+    width: min(370px, 90vw);
+    background: #fff;
+    border: 0;
+}
+
+.nova-drawer .offcanvas-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--nova-line);
+}
+
+.nova-drawer .offcanvas-header .nova-brand img {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+}
+
+.nova-drawer .offcanvas-header .nova-brand__word {
+    font-size: 18px;
+}
+
+.nova-drawer .offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+}
+
+.nova-drawer__label {
+    margin: 0 0 9px;
+    color: var(--nova-muted);
+    font-family: var(--nova-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.nova-drawer__nav {
+    display: grid;
+    gap: 1px;
+    margin-bottom: 24px;
+}
+
+.nova-drawer__nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 10px;
+    border-radius: 8px;
+    color: var(--nova-ink);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nova-drawer__nav a:hover {
+    background: var(--nova-canvas);
+    color: var(--nova-blue);
+}
+
+.nova-drawer__nav i {
+    color: var(--nova-muted);
+    font-size: 12px;
+}
+
+.nova-drawer__nav--sm a {
+    padding: 8px 10px;
+    color: var(--nova-muted-strong);
+    font-size: 13.5px;
+    font-weight: 400;
+}
+
+.nova-drawer__foot {
+    display: grid;
+    gap: 9px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--nova-line);
+}
+
+.nova-drawer__foot p {
+    margin: 0 0 4px;
+    color: var(--nova-muted);
+    font-size: 13px;
+}
+
+/* ------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------ */
+
+.nova-hero {
+    padding: 38px 0 44px;
+    border-bottom: 1px solid var(--nova-line);
+    background:
+        radial-gradient(1200px 420px at 8% -12%, rgba(11, 87, 208, .07), transparent 60%),
+        linear-gradient(180deg, #F8FAFE 0%, var(--nova-canvas) 100%);
+}
+
+.nova-hero__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 44px;
+    align-items: center;
+}
+
+.nova-hero__copy {
+    max-width: 600px;
+}
+
+.nova-hero h1 {
+    margin: 0 0 18px;
+    font-size: clamp(2.2rem, 3.35vw, 3.3rem);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -.05em;
+}
+
+.nova-hero h1 em {
+    color: var(--nova-blue);
+    font-style: normal;
+}
+
+.nova-hero__lede {
+    max-width: 46ch;
+    margin: 0 0 24px;
+    color: var(--nova-muted-strong);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.nova-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nova-hero__facts {
+    display: flex;
+    gap: 30px;
+    margin: 28px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--nova-line);
+    list-style: none;
+}
+
+.nova-hero__facts li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nova-hero__facts strong {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+}
+
+.nova-hero__facts span {
+    color: var(--nova-muted);
+    font-size: 11.5px;
+}
+
+.nova-hero__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.nova-banner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--nova-line);
+    border-radius: 16px;
+    background: #fff;
+}
+
+.nova-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform .65s cubic-bezier(.2, .7, .2, 1);
+}
+
+.nova-banner:hover img {
+    transform: scale(1.02);
+}
+
+.nova-banner__cta {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--nova-ink);
+    font-size: 14px;
+    box-shadow: 0 8px 22px rgba(10, 15, 26, .18);
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.nova-banner:hover .nova-banner__cta,
+.nova-banner:focus-visible .nova-banner__cta {
+    opacity: 1;
+    transform: none;
+}
+
+.nova-banner--lead {
+    border-color: transparent;
+    box-shadow: 0 24px 60px rgba(10, 15, 26, .15);
+}
+
+.nova-hero__assist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 15px 20px;
+    border: 1px solid var(--nova-line);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.nova-hero__assist .nova-eyebrow {
+    margin-bottom: 3px;
+    font-size: 9.5px;
+}
+
+.nova-hero__assist p:not(.nova-eyebrow) {
+    max-width: 36ch;
+    margin: 0;
+    color: var(--nova-muted);
+    font-size: 12.5px;
+    line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
+   Sections
+   ------------------------------------------------------------ */
+
+.nova-section {
+    padding: 66px 0;
+}
+
+.nova-deals {
+    padding-top: 54px;
+    padding-bottom: 60px;
+}
+
+.nova-section__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.nova-section__head .nova-eyebrow {
+    margin-bottom: 8px;
+}
+
+.nova-section__head h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 2.45vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.12;
+}
+
+.nova-section__note {
+    margin: 0 0 3px;
+    color: var(--nova-muted);
+    font-size: 12.5px;
+    text-align: right;
+}
+
+.nova-deal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.nova-deal-grid .nova-banner {
+    border-radius: 14px;
+}
+
+.nova-deal-grid .nova-banner img {
+    aspect-ratio: 20 / 7;
+    object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+   Categories
+   ------------------------------------------------------------ */
+
+.nova-cats {
+    border-top: 1px solid var(--nova-line);
+    border-bottom: 1px solid var(--nova-line);
+    background: #fff;
+}
+
+.nova-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.nova-cat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 82px;
+    padding: 16px 15px;
+    border: 1px solid var(--nova-line);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--nova-ink);
+    text-decoration: none;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.nova-cat:hover {
+    border-color: var(--nova-blue);
+    box-shadow: 0 12px 26px rgba(11, 87, 208, .08);
+    transform: translateY(-2px);
+    color: var(--nova-ink);
+}
+
+.nova-cat__icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: var(--nova-blue-soft);
+    color: var(--nova-blue);
+    font-size: 19px;
+}
+
+.nova-cat__body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.nova-cat__body strong {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.nova-cat__body span {
+    color: var(--nova-muted);
+    font-size: 11.5px;
+}
+
+.nova-cat__arrow {
+    margin-left: auto;
+    color: var(--nova-muted);
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity .18s ease, color .18s ease;
+}
+
+.nova-cat:hover .nova-cat__arrow {
+    opacity: 1;
+    color: var(--nova-blue);
+}
+
+/* ------------------------------------------------------------
+   Spotlight deal
+   ------------------------------------------------------------ */
+
+.nova-deal {
+    position: relative;
+    overflow: hidden;
+    background: var(--nova-ink);
+    color: #fff;
+}
+
+.nova-deal::before {
+    content: "DEAL";
+    position: absolute;
+    top: 50%;
+    right: -2%;
+    transform: translateY(-50%);
+    color: transparent;
+    font-size: clamp(11rem, 25vw, 23rem);
+    font-weight: 800;
+    line-height: .8;
+    letter-spacing: -.08em;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, .06);
+    pointer-events: none;
+    user-select: none;
+}
+
+.nova-deal::after {
+    content: "";
+    position: absolute;
+    top: -220px;
+    right: -140px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(11, 87, 208, .4), transparent 68%);
+    pointer-events: none;
+}
+
+.nova-deal__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    align-items: center;
+    gap: 56px;
+    padding: 62px 0;
+}
+
+.nova-deal__media {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+}
+
+.nova-deal__media img {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+}
+
+.nova-deal__stamp {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-grid;
+    place-items: center;
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: var(--nova-yellow);
+    color: var(--nova-ink);
+    font-family: var(--nova-mono);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.nova-deal__copy h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: clamp(1.75rem, 2.65vw, 2.55rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.12;
+}
+
+.nova-deal__cat {
+    margin: 0 0 20px;
+    color: rgba(255, 255, 255, .5);
+    font-size: 12.5px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.nova-deal__specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 26px;
+    padding: 0;
+    list-style: none;
+}
+
+.nova-deal__specs li {
+    padding: 7px 11px;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, .8);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.nova-deal__price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.nova-deal__price strong {
+    color: #fff;
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1;
+}
+
+.nova-deal__old {
+    color: rgba(255, 255, 255, .4);
+    font-size: 14px;
+    text-decoration: line-through;
+}
+
+.nova-deal__saving {
+    margin: 9px 0 0;
+    color: var(--nova-yellow);
+    font-size: 12.5px;
+}
+
+.nova-deal__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.nova-deal__actions form {
+    margin: 0;
+}
+
+.nova-deal__stock {
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, .48);
+    font-size: 12px;
+}
+
+/* ------------------------------------------------------------
+   Product grid / card
+   ------------------------------------------------------------ */
+
+.nova-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.nova-product {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--nova-line);
+    border-radius: 15px;
+    background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.nova-product:hover {
+    border-color: var(--nova-line-strong);
+    box-shadow: 0 18px 42px rgba(10, 15, 26, .08);
+    transform: translateY(-3px);
+}
+
+.nova-product__media {
+    position: relative;
+    padding: 16px;
+    background: #F7F9FC;
+}
+
+.nova-product__media a {
+    display: block;
+}
+
+.nova-product__media img {
+    display: block;
+    width: 100%;
+    height: 176px;
+    object-fit: contain;
+    transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+
+.nova-product:hover .nova-product__media img {
+    transform: scale(1.035);
+}
+
+.nova-product__badge {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    z-index: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--nova-ink);
+    color: #fff;
+    font-family: var(--nova-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
+.nova-product__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px 17px 16px;
+}
+
+.nova-product__cat {
+    margin: 0 0 6px;
+    color: var(--nova-muted);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.nova-product__title {
+    flex: 1;
+    margin: 0 0 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.nova-product__title a {
+    color: var(--nova-ink);
+    text-decoration: none;
+}
+
+.nova-product__title a:hover {
+    color: var(--nova-blue);
+}
+
+.nova-product__price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 13px;
+}
+
+.nova-product__price strong {
+    color: var(--nova-ink);
+    font-size: 16.5px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.nova-product__price span {
+    color: var(--nova-muted);
+    font-size: 11.5px;
+    text-decoration: line-through;
+}
+
+.nova-product__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--nova-line);
+}
+
+.nova-product__stock {
+    color: var(--nova-green);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.nova-product__stock i {
+    margin-right: 3px;
+}
+
+.nova-product__add {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--nova-line);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--nova-ink);
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.nova-product__add:hover {
+    border-color: var(--nova-blue);
+    background: var(--nova-blue);
+    color: #fff;
+}
+
+/* ------------------------------------------------------------
+   Build PC band
+   ------------------------------------------------------------ */
+
+.nova-build {
+    position: relative;
+    overflow: hidden;
+    background: var(--nova-blue);
+    color: #fff;
+}
+
+.nova-build::before {
+    content: "01";
+    position: absolute;
+    right: -20px;
+    bottom: -90px;
+    color: rgba(255, 255, 255, .07);
+    font-size: clamp(14rem, 30vw, 27rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.1em;
+    pointer-events: none;
+    user-select: none;
+}
+
+.nova-build::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: .5;
+    pointer-events: none;
+}
+
+.nova-build__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    align-items: center;
+    gap: 56px;
+    padding: 62px 0;
+}
+
+.nova-build h2 {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: clamp(1.8rem, 2.75vw, 2.55rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.12;
+}
+
+.nova-build__copy > p:not(.nova-eyebrow) {
+    max-width: 52ch;
+    margin: 0 0 26px;
+    color: rgba(255, 255, 255, .78);
+    font-size: 14.5px;
+    line-height: 1.7;
+}
+
+.nova-build__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.nova-build__parts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nova-build__parts li {
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .05);
+    color: #fff;
+    font-family: var(--nova-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.nova-build + .nova-section {
+    border-top: 1px solid var(--nova-line);
+    background: #fff;
+}
+
+/* ------------------------------------------------------------
+   Commitments
+   ------------------------------------------------------------ */
+
+.nova-commit {
+    padding: 70px 0;
+    border-top: 1px solid var(--nova-line);
+    background: var(--nova-canvas);
+}
+
+.nova-commit__head {
+    max-width: 580px;
+    margin-bottom: 36px;
+}
+
+.nova-commit__head h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 2.75vw, 2.55rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.12;
+}
+
+.nova-commit__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--nova-line-strong);
+}
+
+.nova-commit__item {
+    padding: 26px 26px 8px 0;
+    border-right: 1px solid var(--nova-line);
+}
+
+.nova-commit__item:last-child {
+    border-right: 0;
+    padding-right: 0;
+}
+
+.nova-commit__item:not(:first-child) {
+    padding-left: 26px;
+}
+
+.nova-commit__item > span {
+    color: var(--nova-blue);
+    font-family: var(--nova-mono);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.nova-commit__item h3 {
+    margin: 14px 0 8px;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.nova-commit__item p {
+    margin: 0;
+    color: var(--nova-muted);
+    font-size: 12.5px;
+    line-height: 1.65;
+}
+
+/* ------------------------------------------------------------
+   Brands
+   ------------------------------------------------------------ */
+
+.nova-brands {
+    padding: 28px 0;
+    border-top: 1px solid var(--nova-line);
+    background: #fff;
+}
+
+.nova-brands__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.nova-brands .nova-eyebrow {
+    margin: 0;
+    color: var(--nova-muted);
+}
+
+.nova-brands ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(18px, 3vw, 44px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nova-brands li {
+    color: var(--nova-muted);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .13em;
+}
+
+/* ------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------ */
+
+.nova-footer {
+    position: relative;
+    overflow: hidden;
+    background: var(--nova-ink);
+    color: rgba(255, 255, 255, .6);
+}
+
+.nova-footer__cta {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 62px 0 46px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.nova-footer__cta h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.85rem, 2.9vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -.045em;
+    line-height: 1.1;
+}
+
+.nova-footer__cta .nova-btn {
+    flex-shrink: 0;
+}
+
+.nova-footer__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 46px;
+    padding: 46px 0 42px;
+}
+
+.nova-footer__brand p {
+    max-width: 42ch;
+    margin: 18px 0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.nova-footer__contact {
+    display: grid;
+    gap: 9px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12.5px;
+}
+
+.nova-footer__contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
+}
+
+.nova-footer__contact i {
+    margin-top: 1px;
+    color: var(--nova-yellow);
+    font-size: 13px;
+}
+
+.nova-footer__contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nova-footer__contact a:hover {
+    color: #fff;
+}
+
+.nova-footer__col h3 {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.nova-footer__col a {
+    display: block;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, .6);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color .18s ease;
+}
+
+.nova-footer__col a:hover {
+    color: var(--nova-yellow);
+}
+
+.nova-pay {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.nova-pay span {
+    padding: 6px 9px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, .7);
+    font-size: 10px;
+    letter-spacing: .05em;
+}
+
+.nova-footer__subhead {
+    margin-top: 24px !important;
+}
+
+.nova-footer__hours {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.65;
+}
+
+.nova-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    color: rgba(255, 255, 255, .36);
+    font-size: 11.5px;
+}
+
+.nova-footer__bottom p {
+    margin: 0;
+}
+
+.nova-footer__wordmark {
+    margin-top: 34px;
+    color: transparent;
+    font-size: clamp(3.4rem, 12.6vw, 10.6rem);
+    font-weight: 800;
+    line-height: .78;
+    letter-spacing: -.06em;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, .12);
+    transform: translateY(12%);
+    user-select: none;
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+
+@media (max-width: 1180px) {
+    .nova-header__bar {
+        gap: 14px;
+    }
+
+    .nova-nav a {
+        padding: 9px 8px;
+        font-size: 13px;
+    }
+
+    .nova-hero__top {
+        gap: 32px;
+    }
+
+    .nova-footer__grid {
+        gap: 34px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .nova-nav {
+        display: none;
+    }
+
+    .nova-menu-btn {
+        display: grid;
+    }
+
+    .nova-header__bar {
+        gap: 16px;
+    }
+
+    .nova-grid-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .nova-cat-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .nova-deal__inner {
+        gap: 40px;
+    }
+
+    .nova-footer__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nova-commit__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nova-commit__item:nth-child(2n) {
+        border-right: 0;
+    }
+
+    .nova-commit__item:nth-child(n + 3) {
+        padding-top: 26px;
+        border-top: 1px solid var(--nova-line);
+    }
+
+    .nova-commit__item:nth-child(3) {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .nova-hero {
+        padding-top: 30px;
+    }
+
+    .nova-hero__top {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .nova-hero__copy {
+        max-width: 680px;
+    }
+
+    .nova-hero h1 {
+        max-width: 15ch;
+    }
+
+    .nova-deal__inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        padding: 48px 0;
+    }
+
+    .nova-deal__media {
+        justify-self: center;
+        width: min(100%, 460px);
+    }
+
+    .nova-deal::before {
+        top: auto;
+        bottom: -2%;
+        transform: none;
+        font-size: 15rem;
+    }
+
+    .nova-build__inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        padding: 48px 0;
+    }
+
+    .nova-footer__cta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+        padding: 48px 0 38px;
+    }
+
+    .nova-footer__wordmark {
+        margin-top: 28px;
+    }
+}
+
+@media (max-width: 820px) {
+    .nova-section {
+        padding: 54px 0;
+    }
+
+    .nova-section__head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nova-section__note {
+        text-align: left;
+    }
+
+    .nova-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .nova-cat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nova-brands__inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nova-shell {
+        width: calc(100% - 40px);
+    }
+
+    .nova-header__bar {
+        height: 66px;
+    }
+
+    .nova-search {
+        display: none;
+    }
+
+    .nova-mobile-search {
+        display: block;
+    }
+
+    .nova-mobile-search .nova-search {
+        display: flex;
+    }
+
+    .nova-action span:not(.nova-cart-badge) {
+        display: none;
+    }
+
+    .nova-action {
+        padding: 9px;
+    }
+
+    .nova-topbar__lg,
+    .nova-topbar__dot--lg {
+        display: none;
+    }
+
+    .nova-hero__facts {
+        gap: 22px;
+    }
+
+    .nova-product__media {
+        padding: 12px;
+    }
+
+    .nova-product__media img {
+        height: 152px;
+    }
+
+    .nova-product__body {
+        padding: 13px 14px 14px;
+    }
+
+    .nova-product__title {
+        font-size: 13px;
+    }
+
+    .nova-product__price strong {
+        font-size: 15px;
+    }
+
+    .nova-footer__grid {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .nova-topbar__left span {
+        display: none;
+    }
+
+    .nova-hero__assist {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nova-deal-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nova-deal-grid .nova-banner img {
+        aspect-ratio: auto;
+    }
+
+    .nova-build__parts {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nova-footer__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        padding-top: 36px;
+    }
+
+    .nova-commit__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nova-commit__item,
+    .nova-commit__item:not(:first-child) {
+        padding: 22px 0;
+        border-right: 0;
+        border-top: 1px solid var(--nova-line);
+    }
+
+    .nova-commit__item:first-child {
+        border-top: 0;
+        padding-top: 22px;
+    }
+}
+
+@media (max-width: 520px) {
+    .nova-shell {
+        width: calc(100% - 32px);
+    }
+
+    .nova-brand__word {
+        font-size: 18px;
+    }
+
+    .nova-brand img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .nova-hero {
+        padding: 26px 0 34px;
+    }
+
+    .nova-hero h1 {
+        font-size: clamp(2rem, 9.2vw, 2.55rem);
+    }
+
+    .nova-hero__lede {
+        font-size: 14px;
+    }
+
+    .nova-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nova-hero__actions .nova-btn {
+        width: 100%;
+    }
+
+    .nova-hero__facts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .nova-hero__facts strong {
+        font-size: 18px;
+    }
+
+    .nova-hero__facts span {
+        font-size: 10.5px;
+    }
+
+    .nova-deal__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nova-deal__actions .nova-btn,
+    .nova-deal__actions form {
+        width: 100%;
+    }
+
+    .nova-deal__actions form .nova-btn {
+        width: 100%;
+    }
+
+    .nova-cat-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nova-cat {
+        min-height: 72px;
+    }
+
+    .nova-deal__specs li {
+        font-size: 11.5px;
+    }
+
+    .nova-footer__cta h2 br {
+        display: none;
+    }
+
+    .nova-footer__bottom {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .nova-section {
+        padding: 46px 0;
+    }
+}
+
+@media (max-width: 390px) {
+    .nova-grid-4 {
+        gap: 10px;
+    }
+
+    .nova-product__media {
+        padding: 9px;
+    }
+
+    .nova-product__media img {
+        height: 122px;
+    }
+
+    .nova-product__body {
+        padding: 11px 11px 12px;
+    }
+
+    .nova-product__cat {
+        font-size: 9px;
+        letter-spacing: .08em;
+    }
+
+    .nova-product__title {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .nova-product__price {
+        gap: 5px;
+    }
+
+    .nova-product__price strong {
+        font-size: 14px;
+    }
+
+    .nova-product__price span {
+        font-size: 10.5px;
+    }
+
+    .nova-product__stock {
+        font-size: 10px;
+    }
+
+    .nova-product__add {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+@media (hover: none) {
+    .nova-banner__cta {
+        right: 10px;
+        bottom: 10px;
+        width: 34px;
+        height: 34px;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nova-store *,
+    .nova-store *::before,
+    .nova-store *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .nova-product:hover,
+    .nova-cat:hover,
+    .nova-btn:hover {
+        transform: none;
+    }
+}

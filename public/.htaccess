@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Chặn truy cập trực tiếp vào các file ẩn (.env, .git, .htaccess,...)
+    RewriteRule ^\.(.*)$ - [F,L]
+
+    # Nếu file hoặc thư mục tồn tại thực tế, không rewrite
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Điều hướng mọi request về Front Controller index.php
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# Bảo mật: Tắt hiển thị danh sách thư mục
+Options -Indexes
+
+# UTF-8 mặc định
+AddDefaultCharset UTF-8
+

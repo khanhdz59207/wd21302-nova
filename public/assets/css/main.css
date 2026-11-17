@@ -1,0 +1,175 @@
+/* ============================================================
+   Nova Shop — Design tokens & base
+   ============================================================ */
+
+:root {
+    /* Brand */
+    --primary: #0B74E5;
+    --primary-dark: #0A3FB0;
+    --primary-soft: #EAF3FF;
+    --primary-soft-2: #F0F7FF;
+    --accent: #FFD23F;
+    --accent-hover: #FFC400;
+    --danger: #E30019;
+    --danger-soft: #FFECEE;
+
+    /* Translucent header surfaces */
+    --header-surface: rgba(255, 255, 255, 0.12);
+    --header-surface-hover: rgba(255, 255, 255, 0.16);
+    --header-surface-strong: rgba(255, 255, 255, 0.24);
+    --header-border: rgba(255, 255, 255, 0.35);
+
+    /* Surfaces */
+    --bg: #F4F5F7;
+    --card: #FFFFFF;
+    --border: #E5E7EB;
+    --bg-topbar: #0A3FB0;
+    --bg-nav: #FFFFFF;
+    --bg-footer: #0B1220;
+
+    /* Text */
+    --text: #1F2937;
+    --text-secondary: #4B5563;
+    --text-muted: #6B7280;
+    --text-white: #FFFFFF;
+
+    /* States */
+    --badge-sale: var(--danger);
+    --badge-new: #00A651;
+    --badge-hot: #FF6600;
+    --star: #FFB400;
+    --success: #00A651;
+    --price-sale: var(--danger);
+    --price-old: #9CA3AF;
+    --border-focus: var(--accent);
+
+    /* Shape & motion */
+    --radius: 10px;
+    --radius-sm: 8px;
+    --radius-pill: 999px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.18);
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --font: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+    /* Legacy aliases (giữ tương thích client.css cũ + admin.css) */
+    --bg-page: var(--bg);
+    --bg-white: var(--card);
+    --text-primary: var(--text);
+    --shadow-card: var(--shadow);
+
+    /* Admin giữ nguyên bộ màu đỏ cũ */
+    --pv-primary: #E30613;
+    --pv-primary-dark: #B8000F;
+    --pv-danger: #E30613;
+    --pv-warning: #ffc107;
+    --pv-success: #198754;
+    --pv-gray-100: #f8f9fa;
+    --pv-gray-200: #e9ecef;
+    --pv-gray-800: #212529;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+}
+
+body.client-page {
+    font-size: 14px;
+    line-height: 1.5;
+    background: var(--bg);
+    color: var(--text);
+    --bs-link-color-rgb: 31, 41, 55;
+    --bs-link-hover-color-rgb: 11, 116, 229;
+}
+
+body.client-page h1 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+body.client-page h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+body.client-page h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+body.client-page h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+body.client-page a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Max-width content shell */
+.container-site {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+/* Skip link */
+.skip-link {
+    position: fixed;
+    top: -60px;
+    left: 12px;
+    z-index: 2000;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.18s var(--ease);
+}
+
+.skip-link:focus {
+    top: 12px;
+    color: #fff;
+}
+
+/* Flash messages */
+.pv-flash-container {
+    position: relative;
+    z-index: 1050;
+    margin-bottom: 1rem;
+}
+
+.pv-flash-container .alert {
+    border-radius: var(--radius-sm);
+    font-size: 13.5px;
+}
+
+/* Shared helpers */
+.fw-black {
+    font-weight: 900;
+}
+
+.tracking-tight {
+    letter-spacing: -0.5px;
+}
+
+.hover-shadow {
+    transition: all 0.2s var(--ease);
+}
+
+.hover-shadow:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover) !important;
+}

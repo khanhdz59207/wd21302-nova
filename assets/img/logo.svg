@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Nova Shop">
+  <rect width="48" height="48" rx="13" fill="#0B74E5"/>
+  <path d="M14 34V14l20 20V14" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36" cy="12" r="3.2" fill="#FFD34D"/>
+</svg>
