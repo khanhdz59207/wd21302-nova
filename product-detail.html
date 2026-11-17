@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Asus ROG Strix G16 G614JV - Nova Shop</title>
+    <meta name="description" content="Mua Laptop Asus ROG Strix G16 G614JV i7-13650HX RTX 4060 chính hãng giá tốt tại Nova Shop.">
+    <meta name="theme-color" content="#0B74E5">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/client.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="client-page d-flex flex-column min-vh-100">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container-site topbar-inner">
+            <div class="topbar-left">
+                <span><i class="bi bi-truck me-1"></i>Miễn phí vận chuyển đơn từ 500.000₫</span>
+                <span class="d-none d-md-inline ms-3">
+                    <i class="bi bi-telephone-fill me-1"></i>
+                    Hotline: <strong><a href="tel:18006867" class="text-white">1800 6867</a></strong> (8:00–21:00)
+                </span>
+            </div>
+            <div class="topbar-right">
+                <a href="products.html" class="d-none d-sm-inline">Hệ thống cửa hàng</a>
+                <a href="orders.html">Tra cứu đơn hàng</a>
+                <a href="login.html">Đăng nhập</a>
+                <a href="register.html" class="d-none d-sm-inline">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header" id="main-header">
+        <div class="container-site header-inner">
+            <a href="index.html" class="header-logo" aria-label="Nova Shop - Trang chủ">
+                <img src="assets/img/logo.svg" alt="Nova Shop" width="42" height="42">
+                <span class="header-logo-text">
+                    <strong>NOVA SHOP</strong>
+                    <small>Công nghệ chính hãng</small>
+                </span>
+            </a>
+
+            <!-- Search -->
+            <div class="header-search flex-grow-1 mx-3">
+                <form action="products.html" method="GET" class="position-relative">
+                    <input type="text" class="form-control search-input" placeholder="Tìm kiếm laptop, PC, linh kiện..." autocomplete="off">
+                    <button type="submit" class="btn btn-search">
+                        <i class="bi bi-search me-1"></i>
+                        <span>Tìm kiếm</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Actions -->
+            <div class="header-actions d-flex align-items-center gap-3">
+                <a href="orders.html" class="header-action-btn d-none d-md-flex flex-column align-items-center text-decoration-none">
+                    <i class="bi bi-receipt fs-5"></i>
+                    <span>Tra cứu đơn</span>
+                </a>
+                <a href="login.html" class="header-action-btn d-none d-sm-flex flex-column align-items-center text-decoration-none">
+                    <i class="bi bi-person fs-5"></i>
+                    <span>Tài khoản</span>
+                </a>
+                <a href="cart.html" class="header-action-btn header-cart position-relative d-flex flex-column align-items-center text-decoration-none">
+                    <span class="action-icon-wrap position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="cart-badge badge rounded-pill bg-danger" id="cartCount">3</span>
+                    </span>
+                    <span>Giỏ hàng</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-white border-bottom py-2">
+        <div class="container-site">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-0 small">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="products.html" class="text-decoration-none">Laptop</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Laptop Asus ROG Strix G16 G614JV</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN PRODUCT DETAIL -->
+    <main class="flex-grow-1 py-4">
+        <div class="container-site">
+            
+            <!-- Khối trên: Ảnh, Thông tin & Đặt hàng -->
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                <div class="row g-4">
+                    
+                    <!-- Cột 1: Gallery Ảnh -->
+                    <div class="col-12 col-md-5">
+                        <div class="border rounded-3 p-3 text-center mb-3 bg-light" style="height: 380px;">
+                            <img id="mainImage" src="assets/img/products/laptop-rog.png" alt="Laptop Asus ROG Strix G16" class="img-fluid h-100 object-fit-contain">
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <button class="btn btn-outline-primary active p-1 rounded" style="width: 70px; height: 70px;" onclick="changeImg('assets/img/products/laptop-rog.png')">
+                                <img src="assets/img/products/laptop-rog.png" class="img-fluid h-100 object-fit-contain" alt="thumb 1">
+                            </button>
+                            <button class="btn btn-outline-secondary p-1 rounded" style="width: 70px; height: 70px;" onclick="changeImg('assets/img/products/laptop-predator.png')">
+                                <img src="assets/img/products/laptop-predator.png" class="img-fluid h-100 object-fit-contain" alt="thumb 2">
+                            </button>
+                            <button class="btn btn-outline-secondary p-1 rounded" style="width: 70px; height: 70px;" onclick="changeImg('assets/img/products/pc-apex.png')">
+                                <img src="assets/img/products/pc-apex.png" class="img-fluid h-100 object-fit-contain" alt="thumb 3">
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cột 2: Thông tin mua hàng -->
+                    <div class="col-12 col-md-7">
+                        <span class="badge bg-danger mb-2">HOT DEAL</span>
+                        <h1 class="fs-4 fw-bold text-dark mb-2">Laptop Asus ROG Strix G16 G614JV (i7-13650HX / RTX 4060 / 16GB / 512GB)</h1>
+                        
+                        <div class="d-flex align-items-center gap-3 mb-3 small">
+                            <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <strong>4.9</strong> (125 đánh giá)</span>
+                            <span class="text-muted">|</span>
+                            <span class="text-muted">Mã SP: <strong>NOVA-ROG-G16</strong></span>
+                            <span class="text-muted">|</span>
+                            <span class="text-success"><i class="bi bi-check-circle-fill"></i> Còn hàng (15 máy)</span>
+                        </div>
+
+                        <!-- Khung giá -->
+                        <div class="p-3 rounded-3 mb-3" style="background-color: #FFF2F0; border: 1px dashed #FF4D4F;">
+                            <div class="d-flex align-items-baseline gap-3">
+                                <span class="fs-2 fw-bolder text-danger">36.490.000₫</span>
+                                <span class="text-decoration-line-through text-muted fs-6">39.990.000₫</span>
+                                <span class="badge bg-danger">-9% (Tiết kiệm 3.500.000₫)</span>
+                            </div>
+                            <small class="text-muted d-block mt-1"><i class="bi bi-credit-card text-success"></i> Trả góp 0% chỉ từ 3.040.000₫/tháng qua thẻ tín dụng</small>
+                        </div>
+
+                        <!-- Khuyến mãi -->
+                        <div class="card border-primary-subtle mb-3">
+                            <div class="card-header bg-primary text-white py-1 small fw-bold">
+                                <i class="bi bi-gift-fill me-1"></i> KHUYẾN MÃI ĐẶC QUYỀN TẠI NOVA SHOP
+                            </div>
+                            <div class="card-body p-2 small">
+                                <p class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Tặng Balo Gaming ROG cao cấp trị giá <strong>990.000₫</strong></p>
+                                <p class="mb-1"><i class="bi bi-check2 text-success me-1"></i> Tặng Chuột Gaming Asus TUF M3 trị giá <strong>450.000₫</strong></p>
+                                <p class="mb-0"><i class="bi bi-check2 text-success me-1"></i> Giảm thêm <strong>500.000₫</strong> khi thanh toán qua VNPay-QR</p>
+                            </div>
+                        </div>
+
+                        <!-- Số lượng & Nút bấm -->
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <span class="fw-semibold small">Số lượng:</span>
+                            <div class="input-group" style="width: 120px;">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="adjustQty(-1)">-</button>
+                                <input type="number" id="buyQty" class="form-control form-control-sm text-center" value="1" min="1" max="15">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="adjustQty(1)">+</button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <a href="checkout.html" class="btn btn-danger btn-lg flex-grow-1 rounded-pill fw-bold">
+                                MUA NGAY<br><small class="fw-normal fs-6">Giao hàng tận nơi miễn phí</small>
+                            </a>
+                            <a href="cart.html" class="btn btn-outline-primary btn-lg rounded-pill px-4 fw-bold">
+                                <i class="bi bi-cart-plus me-1"></i> THÊM VÀO GIỎ
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Khối dưới: Thông số kỹ thuật & Mô tả chi tiết -->
+            <div class="row g-4">
+                <!-- Mô tả -->
+                <div class="col-12 col-lg-8">
+                    <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                        <h4 class="fs-5 fw-bold text-dark border-bottom pb-2 mb-3">Đặc điểm nổi bật</h4>
+                        <p class="text-secondary">
+                            <strong>Asus ROG Strix G16 G614JV</strong> là dòng laptop gaming cao cấp được trang bị vi xử lý <strong>Intel Core i7-13650HX thế hệ 13</strong> cực mạnh kết hợp card đồ họa <strong>NVIDIA GeForce RTX 4060 8GB GDDR6</strong>. Hệ thống tản nhiệt thông minh ROG Intelligent Cooling với 3 quạt và keo tản nhiệt kim loại lỏng Conductonaut Extreme giúp máy luôn mát mẻ trong các trận đấu game AAA dài hơi.
+                        </p>
+                        <p class="text-secondary">
+                            Màn hình 16 inch tỷ lệ 16:10, độ phân giải sắc nét cùng tần số quét siêu mượt 165Hz cho trải nghiệm thị giác tuyệt đỉnh, không hề có hiện tượng xé hình hay trễ hình.
+                        </p>
+                        <div class="text-center my-4">
+                            <img src="assets/img/banner/combo-pc.jpg" alt="ROG Strix Gaming Setup" class="img-fluid rounded-3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng Thông số kỹ thuật -->
+                <div class="col-12 col-lg-4">
+                    <div class="bg-white p-4 rounded-3 shadow-sm border">
+                        <h4 class="fs-5 fw-bold text-dark border-bottom pb-2 mb-3">Thông số kỹ thuật</h4>
+                        <table class="table table-striped table-sm small">
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted fw-semibold">CPU</td>
+                                    <td>Intel Core i7-13650HX (14 nhân, 20 luồng)</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">RAM</td>
+                                    <td>16GB DDR5 4800MHz (2 khe nâng cấp)</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">Ổ cứng</td>
+                                    <td>512GB PCIe 4.0 NVMe M.2 SSD</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">Card đồ họa</td>
+                                    <td>NVIDIA GeForce RTX 4060 8GB GDDR6</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">Màn hình</td>
+                                    <td>16.0" FHD+ (1920x1200), IPS 165Hz</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">Bàn phím</td>
+                                    <td>RGB 4 vùng độc lập Per-Key</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">Pin</td>
+                                    <td>90WHrs, 4S1P, 4-cell Li-ion</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">Trọng lượng</td>
+                                    <td>2.50 kg</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted fw-semibold">Bảo hành</td>
+                                    <td>24 tháng chính hãng Asus toàn quốc</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer bg-dark text-white pt-4 pb-3 mt-auto">
+        <div class="container-site text-center small text-secondary">
+            © 2026 Nova Shop - Laptop, PC &amp; Linh kiện chính hãng.
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function changeImg(src) {
+            document.getElementById('mainImage').src = src;
+        }
+        function adjustQty(n) {
+            const el = document.getElementById('buyQty');
+            let v = parseInt(el.value, 10) + n;
+            if (v < 1) v = 1;
+            if (v > 15) v = 15;
+            el.value = v;
+        }
+    </script>
+</body>
+</html>

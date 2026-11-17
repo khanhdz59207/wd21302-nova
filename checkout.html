@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán Đơn Hàng - Nova Shop</title>
+    <meta name="description" content="Thanh toán an toàn, bảo mật tại Nova Shop.">
+    <meta name="theme-color" content="#0B74E5">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/client.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="client-page d-flex flex-column min-vh-100">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container-site topbar-inner">
+            <div class="topbar-left">
+                <span><i class="bi bi-shield-check me-1"></i>Thanh toán bảo mật chuẩn SSL 256-bit</span>
+            </div>
+            <div class="topbar-right">
+                <span class="text-white small">Hotline hỗ trợ: <strong>1800 6867</strong> (Miễn phí)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header" id="main-header">
+        <div class="container-site header-inner justify-content-between">
+            <a href="index.html" class="header-logo" aria-label="Nova Shop - Trang chủ">
+                <img src="assets/img/logo.svg" alt="Nova Shop" width="42" height="42">
+                <span class="header-logo-text">
+                    <strong>NOVA SHOP</strong>
+                    <small>Thanh toán an toàn</small>
+                </span>
+            </a>
+            <div class="text-white d-none d-md-block">
+                <span class="badge bg-success-subtle text-success border px-3 py-2 fs-6">
+                    <i class="bi bi-check-circle-fill me-1"></i> 100% Hàng chính hãng
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-white border-bottom py-2">
+        <div class="container-site">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-0 small">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="cart.html" class="text-decoration-none">Giỏ hàng</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Thanh toán đơn hàng</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MAIN CHECKOUT CONTENT -->
+    <main class="flex-grow-1 py-4">
+        <div class="container-site">
+            <h1 class="fs-4 fw-bold mb-4 text-dark"><i class="bi bi-credit-card-2-front text-primary me-2"></i>Thông Tin Đặt Hàng &amp; Thanh Toán</h1>
+
+            <form action="order-success.html" method="GET">
+                <div class="row g-4">
+                    
+                    <!-- Cột thông tin khách hàng & thanh toán (Trái) -->
+                    <div class="col-12 col-lg-7">
+                        
+                        <!-- 1. Thông tin giao hàng -->
+                        <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                            <h5 class="fs-6 fw-bold border-bottom pb-2 mb-3 text-dark">
+                                <span class="badge bg-primary rounded-circle me-1">1</span> THÔNG TIN NGƯỜI NHẬN HÀNG
+                            </h5>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Họ và tên người nhận <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" value="Nguyễn Văn An" required>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Số điện thoại <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" placeholder="0901234567" value="0987654321" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Email nhận hóa đơn điện tử <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" placeholder="an.nguyen@gmail.com" value="an.nguyen@gmail.com" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Địa chỉ giao hàng chi tiết <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="Số nhà, ngõ, tên đường, phường/xã..." value="Tầng 11, Toà nhà FPT, Phố Phạm Văn Bạch, Cầu Giấy, Hà Nội" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Ghi chú cho shipper (nếu có)</label>
+                                <textarea class="form-control" rows="2" placeholder="Ví dụ: Giao giờ hành chính, gọi điện trước khi đến 15 phút..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- 2. Phương thức thanh toán -->
+                        <div class="bg-white p-4 rounded-3 shadow-sm border">
+                            <h5 class="fs-6 fw-bold border-bottom pb-2 mb-3 text-dark">
+                                <span class="badge bg-primary rounded-circle me-1">2</span> CHỌN PHƯƠNG THỨC THANH TOÁN
+                            </h5>
+
+                            <div class="form-check p-3 border rounded mb-2 bg-light">
+                                <input class="form-check-input ms-0 me-3" type="radio" name="payment_method" id="pay_cod" checked>
+                                <label class="form-check-label fw-semibold" for="pay_cod">
+                                    <i class="bi bi-cash-coin text-success fs-5 me-2 align-middle"></i> Thanh toán khi nhận hàng (COD)
+                                    <small class="d-block text-muted fw-normal">Quý khách thanh toán tiền mặt cho shipper sau khi kiểm tra niêm phong kiện hàng.</small>
+                                </label>
+                            </div>
+
+                            <div class="form-check p-3 border rounded mb-2">
+                                <input class="form-check-input ms-0 me-3" type="radio" name="payment_method" id="pay_vnpay">
+                                <label class="form-check-label fw-semibold" for="pay_vnpay">
+                                    <i class="bi bi-qr-code-scan text-primary fs-5 me-2 align-middle"></i> Quét mã VNPAY-QR (Giảm thêm 50k)
+                                    <small class="d-block text-muted fw-normal">Hỗ trợ tất cả ứng dụng Mobile Banking &amp; ví điện tử.</small>
+                                </label>
+                            </div>
+
+                            <div class="form-check p-3 border rounded mb-2">
+                                <input class="form-check-input ms-0 me-3" type="radio" name="payment_method" id="pay_momo">
+                                <label class="form-check-label fw-semibold" for="pay_momo">
+                                    <i class="bi bi-wallet2 text-danger fs-5 me-2 align-middle"></i> Ví điện tử MoMo
+                                    <small class="d-block text-muted fw-normal">Xác nhận thanh toán tức thì qua App MoMo.</small>
+                                </label>
+                            </div>
+
+                            <div class="form-check p-3 border rounded">
+                                <input class="form-check-input ms-0 me-3" type="radio" name="payment_method" id="pay_bank">
+                                <label class="form-check-label fw-semibold" for="pay_bank">
+                                    <i class="bi bi-bank text-info fs-5 me-2 align-middle"></i> Chuyển khoản ngân hàng trực tiếp
+                                    <small class="d-block text-muted fw-normal">Thông tin tài khoản ngân hàng sẽ hiển thị sau khi tạo đơn.</small>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Cột tóm tắt đơn hàng (Phải) -->
+                    <div class="col-12 col-lg-5">
+                        <div class="bg-white p-4 rounded-3 shadow-sm border mb-3">
+                            <h5 class="fs-6 fw-bold border-bottom pb-2 mb-3 text-dark">ĐƠN HÀNG CỦA BẠN (3 món)</h5>
+
+                            <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                <img src="assets/img/products/laptop-rog.png" width="50" height="50" class="object-fit-contain border rounded" alt="ROG">
+                                <div class="flex-grow-1 small">
+                                    <span class="d-block fw-semibold text-truncate" style="max-width: 200px;">Laptop Asus ROG Strix G16</span>
+                                    <span class="text-muted">SL: 1</span>
+                                </div>
+                                <span class="fw-bold small text-end">36.490.000₫</span>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                <img src="assets/img/products/mouse-logi.png" width="50" height="50" class="object-fit-contain border rounded" alt="Mouse">
+                                <div class="flex-grow-1 small">
+                                    <span class="d-block fw-semibold text-truncate" style="max-width: 200px;">Chuột Logitech G PRO X 2</span>
+                                    <span class="text-muted">SL: 1</span>
+                                </div>
+                                <span class="fw-bold small text-end">3.490.000₫</span>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                <img src="assets/img/products/keyboard-logi.png" width="50" height="50" class="object-fit-contain border rounded" alt="Keyboard">
+                                <div class="flex-grow-1 small">
+                                    <span class="d-block fw-semibold text-truncate" style="max-width: 200px;">Bàn Phím Logitech G515</span>
+                                    <span class="text-muted">SL: 1</span>
+                                </div>
+                                <span class="fw-bold small text-end">2.990.000₫</span>
+                            </div>
+
+                            <div class="d-flex justify-content-between mb-2 small text-muted">
+                                <span>Tạm tính:</span>
+                                <span class="text-dark fw-semibold">42.970.000₫</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2 small text-muted">
+                                <span>Phí vận chuyển:</span>
+                                <span class="text-success fw-semibold">0₫ (Miễn phí)</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 small text-muted">
+                                <span>Voucher đã dùng:</span>
+                                <span class="text-danger fw-semibold">-500.000₫</span>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-baseline mb-4">
+                                <span class="fs-6 fw-bold text-dark">Tổng thanh toán:</span>
+                                <span class="fs-3 fw-bolder text-danger">42.470.000₫</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger w-100 py-3 rounded-pill fw-bold fs-6 shadow">
+                                <i class="bi bi-bag-check-fill me-1"></i> XÁC NHẬN ĐẶT HÀNG
+                            </button>
+                            <small class="d-block text-muted text-center mt-2">
+                                Nhấp "Xác nhận đặt hàng" đồng nghĩa với việc bạn đồng ý với Điều khoản dịch vụ của Nova Shop.
+                            </small>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer bg-dark text-white pt-4 pb-3 mt-auto">
+        <div class="container-site text-center small text-secondary">
+            © 2026 Nova Shop - Laptop, PC &amp; Linh kiện chính hãng.
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
